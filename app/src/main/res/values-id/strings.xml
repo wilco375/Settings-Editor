@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"Judul"</string>
+<string name="category">"Kategori"</string>
+<string name="intent_package">"Paket untuk luncurkan"</string>
+<string name="fragment">"Pengaturan Fragmen peluncuran"</string>
+<string name="choose_icon">"Klik untuk pilih ikon"</string>
+<string name="select_icon">"Pilih Ikon"</string>
+<string name="install_fm_error">"Silakan pasang File Manajer"</string>
+<string name="setting_added">"Pengaturan di simpan"</string>
+<string name="icon_by_app">"Pilih ikon app"</string>
+<string name="icon_by_fm">"Pilih dari file"</string>
+<string name="remove_tile">"Kamu yakin ingin menghapus item ini?"</string>
+<string name="apps">"Apps"</string>
+<string name="settings">"Pengaturan"</string>
+<string name="trial_max_reached_title">"Kamu telah melebihi lima batas pengaturan"</string>
+<string name="trial_max_reached_text">"mohon mendukung saya dengan membeli versi pro"</string>
+<string name="how_to_use">"Cara menggunakan"</string>
+<string name="how_to_use_desc">"Klik tombol Aksi mengambang untuk menambahkan item ke Pengaturan Android kamu. Jika kamu ingin edit item, klik saja. klik lama tuk menghapus pengaturan"</string>
+<string name="launch_settings_title">"Luncurkan Pengaturan"</string>
+<string name="launch_settings_text">"Ini akan meluncurkan pengaturan untuk mendapatkan daftar semua item"</string>
+
+<!-- Fuzzy -->
+<string name="dialog_error">"kesalahan saat menyimpan. Apakah kamu memasukkan kategori dan atau kamu tidak memasukkan sesuatu di kedua paket dan fragmen untuk memulai bidang?"</string>
+<string name="modify_columns">"Ubah jumlah kolom ke"</string>
+<string name="icons_only">"hanya tampilkan ikon"</string>
+<string name="modify_icon_size">"ubah ukuran ikon (pixels)"</string>
+<string name="remove_icon_bg">"hapus ikon latar jika tampil"</string>
+<string name="installed_apps_icon">"Mengklik ikon app di aktivitas InstalledAppDetails akan meluncurkan app"</string>
+<string name="color_filter_overlay">"Filter warna ikon dengan HTML warna"</string>
+<string name="reset">"Reset"</string>
+<string name="reset_text">"Ini akan me-reset semua modifikasi"</string>
+<string name="show_package">"Tampilkan nama paket app di aktivitas InstalledAppDetails"</string>
+<string name="app_author">"App oleh wilco375"</string>
+<string name="about">"Tentang"</string>
+<string name="contributors">"Kontributor"</string>
+<string name="categories">"Kategori"</string>
+<string name="categories_desc">"Ubah kategori"</string>
+<string name="tiles">"Item"</string>
+<string name="tiles_desc">"Ubah masing-masing item"</string>
+<string name="settings_desc">"Ubah pengaturan umum"</string>
+<string name="remove_category">"Kamu yakin ingin hapus kategori ini? hal ini juga akan menghapus semua item didalam kategori ini"</string>
+<string name="dashboard">"Dasbor"</string>
+<string name="app_details">"Info App"</string>
+<string name="hide_icon">"Sembunyikan ikon peluncur"</string>
+<string name="background_color">"Warna latar"</string>
+<string name="icon_by_list">"Pilih dari daftar"</string>
+<string name="exit">"Keluar"</string>
+<string name="permissions_needed_desc">"Settings Editor membutuhkan Akses penyimpanan eksternal agar berjalan dengan baik dan untuk menyimpan konfigurasi.
+Jika kamu menolaknya,kamu tidak bisa menggunakan app"</string>
+<string name="permissions_needed">"Izin dibutuhkan"</string>
+<string name="permissions_denied">"Sepertinya kamu menggunakan Android Marshmallow atau lebih, dan kamu menolak beberapa Izin.
+Read/Write akses dibutuhkan untuk simpan data app dan config.
+Mohon izinkan akses atau app tidak akan bekerja."</string>
+<string name="app_ready">"Kamu sudah siap!"</string>
+<string name="app_ready_desc">"Aplikasi siap digunakan!
+Have fun :)"</string>
+<string name="edit_settings">"Edit pengaturanmu dgn mudah"</string>
+<string name="edit_settings_desc">"Ubah item, Kategori dan tweak pengaturanmu!"</string>
+<string name="xposed_desc">"Ubah item, Kategori dan tweak pengaturanmu!"</string>
+<string name="thanks_pro_intro">"Terima kasih banyak atas dukunganmu!
+Sekarang kamu punya kontrol penuh pengaturanmu!"</string>
+<string name="pro_intro_title">"Versi Pro"</string>
+<string name="free_intro_title">"Versi Gratis"</string>
+<string name="limited_free_intro">"Versi ini terbatas hanya untuk lima modifikasi dalam pengaturanmu.
+Cobalah!"</string>
+<string name="text_color">"Warna teks"</string>
+<string name="backup">"Cadangkan"</string>
+<string name="backup_desc">"Cadangkan atau Pulihkan pengaturanmu"</string>
+<string name="restore">"Pulihkan"</string>
+<string name="backup_success">"Cadangan berhasil dibuat"</string>
+<string name="backup_error">"Error saat mencadangkan, silahkan coba lagi"</string>
+<string name="restore_success">"Cadangan berhasil dipulihkan"</string>
+<string name="restore_error">"Error saat memulihkan cadangan, mohon coba lagi"</string>
+<string name="backup_delete">"Kamu yakin ingin menghapus cadangan ini?"</string>
+<string name="restore_confirm">"Kamu yakin ingin pulihkan cadangan ini?"</string>
+<string name="restore_confirm_desc">"Hal ini akan menimpa konfigurasi saat ini."</string>
+<string name="hide_status_text">"sembunyikan text status"</string>
+<string name="xposed_not_active">"Module Xposed tidak diaktifkan"</string>
+<string name="xposed_not_active_desc">"Module Xposed ini tampaknya tidak diaktifkan.
+Silahkan aktifkan untuk menggunakan app"</string>
+<string name="description">"Deskripsi"</string>
+<string name="debug">"Mode Debug"</string>
+<string name="license_fail_title">"Cek Lisensi gagal"</string>
+<string name="license_fail_desc">"Lisensi aplikasi tidak valid (Error code %d). Silahkan membeli aplikasi dari Google Play Store. Jika Kamu yakin ini adalah kesalahan, silakan hubungi saya di wilco@wilco375.com"</string>
+<string name="retry">"Ulangi"</string>
+<string name="checking_license">"Memeriksa Lisensi, Mohon tunggu..."</string>
+<string name="remove_free">"Copot Settings Editor"</string>
+<string name="remove_free_desc">"Settings Editor Pro mendeteksi Settings Editor masih terpasang. Silahkan copot aplikasi ini dengan mengklik berikutnya."</string>
+<string name="hide_suggestions"></string>
+<string name="discard"></string>
+</resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"Nadpis"</string>
+<string name="category">"Kategorie"</string>
+<string name="intent_package">"Balíček ke spuštění"</string>
+<string name="fragment">"Nastavení Fragmentu pro spuštění"</string>
+<string name="choose_icon">"Klikněte pro výběr ikony"</string>
+<string name="select_icon">"Vybrat ikonu"</string>
+<string name="install_fm_error">"Prosím nainstalujte správce souborů"</string>
+<string name="setting_added">"Nastavení je uloženo"</string>
+<string name="icon_by_app">"Vybrat ikonu aplikace"</string>
+<string name="icon_by_fm">"Vybrat ze souborů"</string>
+<string name="remove_tile">"Jste si jistí že chcete odebrat tuto položku?"</string>
+<string name="apps">"Aplikace"</string>
+<string name="settings">"Nastavení"</string>
+<string name="trial_max_reached_title">"Překročili jste maximu z pěti úprav nastavení"</string>
+<string name="trial_max_reached_text">"Pro podporu autora, prosím zvažte nákup pro verze"</string>
+<string name="how_to_use">"Jak používat Settings editor"</string>
+<string name="how_to_use_desc">"Kliknutím na tlačítko plovoucí akce přidate položku do nastavení systému Android. Chcete-li upravit položku, stačí na ní kliknout. Dlouhé kliknutí odstraňuje tuto položku z nastavení"</string>
+<string name="launch_settings_title">"Spustit nastavení"</string>
+<string name="launch_settings_text">"Tímto se spustí nastavení, aby se získal seznam všech položek"</string>
+<string name="dialog_error">"Chyba při ukládání. Zadali jste kategorii, ale nezadali jste něco do balíčku nebo do fragmentu, pro pole spuštění ."</string>
+<string name="modify_columns">"Změnit množství sloupců"</string>
+<string name="icons_only">"Zobrazit v nastavení pouze ikony"</string>
+<string name="modify_icon_size">"Změnit velikost ikon (v pixelech)"</string>
+<string name="remove_icon_bg">"Odebrat pozadí ikon pokud nějaké je"</string>
+<string name="installed_apps_icon">"Kliknutím na ikonu v InstalledAppDetails aktivitě spustí danou aplikaci"</string>
+<string name="color_filter_overlay">"Barevný filtr ikon s HTML barvou"</string>
+<string name="reset">"Resetovat"</string>
+<string name="reset_text">"Toto resetuje všechny modifikace"</string>
+<string name="show_package">"Zobrazit název balíčku v InstalledAppDetails aktivitě"</string>
+<string name="app_author">"Aplikaci vytvořil wilco375"</string>
+<string name="about">"Info o aplikaci"</string>
+<string name="contributors">"Přispěvatelé"</string>
+<string name="categories">"Kategorie"</string>
+<string name="categories_desc">"Změnit kategorie"</string>
+<string name="tiles">"Položky"</string>
+<string name="tiles_desc">"Změnit jednotlivé položky"</string>
+<string name="settings_desc">"Změnit hlavní nastavení"</string>
+<string name="remove_category">"Opravdu chcete smazat tuto kategorii?
+Tím také smažete všechny položky v této kategorii."</string>
+<string name="dashboard">"Hlavní panel"</string>
+<string name="app_details">"Informace o aplikaci v nastavení"</string>
+<string name="hide_icon">"Skrýt ikonu v Launcheru"</string>
+<string name="background_color">"Barva pozadí"</string>
+<string name="icon_by_list">"Vybrat ze seznamu"</string>
+<string name="exit">"Odejít"</string>
+<string name="permissions_needed_desc">"Settings Editor potřebuje přístup k externímu úložišti pro správnou funkci a konfiguraci úložiště.
+Pokud toto oprávnění zakážete, nebudete moci používat aplikaci."</string>
+<string name="permissions_needed">"Potřebná oprávnění"</string>
+<string name="permissions_denied">"Vypadá to, že váš systémem Android je Marshmallow nebo vyšší, a že jste zakázal/a nějaké oprávnění.
+Oprávnění ke čtení / zápis je potřeba pro uložení dat aplikace a konfigurace.
+Prosím, přijměte je nebo aplikace nebude fungovat."</string>
+<string name="app_ready">"Nastavili jste vše!"</string>
+<string name="app_ready_desc">"Aplikace je připravena k použití!
+Bavte se :)"</string>
+<string name="edit_settings">"Upravte vaše nastavení snadno"</string>
+<string name="edit_settings_desc">"Změňte položky, kategorie a polaďte vaše nastavení!"</string>
+<string name="xposed_desc">"Změňte položky, kategorie a polaďte vaše nastavení!"</string>
+<string name="thanks_pro_intro">"Mockrát děkuji za vaší podporu!
+Nyní máte neomezenou kontrolu nad nastavením!"</string>
+<string name="pro_intro_title">"Pro verze"</string>
+<string name="free_intro_title">"Verze zdarma"</string>
+<string name="limited_free_intro">"Tato verze je limitovaná na pět modifikací v nastavení.
+Zkuste je!"</string>
+<string name="text_color">"Barva textu"</string>
+<string name="backup">"Zálohovat"</string>
+<string name="backup_desc">"Zálohovat nebo obnovit vaše nastavení"</string>
+<string name="restore">"Obnovit"</string>
+<string name="backup_success">"Záloha byla úspěšně vytvořena"</string>
+<string name="backup_error">"Chyba při tvoření zálohy, prosím zkuste to znovu"</string>
+<string name="restore_success">"Záloha byla úspěšně obnovena"</string>
+<string name="restore_error">"Chyba při obnovování zálohy, prosím zkuste to znovu"</string>
+<string name="backup_delete">"Opravdu chcete smazat tuto zálohu?"</string>
+<string name="restore_confirm">"Opravdu chcete obnovit tuto zálohu?"</string>
+<string name="restore_confirm_desc">"Toto přepíše současnou konfiguraci"</string>
+<string name="hide_status_text">"Skrýt text stavu"</string>
+<string name="xposed_not_active">"Tento Xposed modul nebyl aktivován"</string>
+<string name="xposed_not_active_desc">"Tento Xposed modul se nezdá být aktivován. Prosím aktivujte jej pro použití aplikace"</string>
+<string name="description">"Popis"</string>
+<string name="debug">"Debug mód"</string>
+<string name="license_fail_title">"Kontrola licence skončila chybou"</string>
+<string name="license_fail_desc">"Licence aplikace je neplatná (chyba %d).
+Prosím kupte si tuto aplikaci v obchodě Google Play. Pokud věříte že toto je chyba​, prosím kontaktujte mě na support@wilco375.com"</string>
+<string name="retry">"Znovu"</string>
+<string name="checking_license">"Kontroluji licenci, prosím počkejte..."</string>
+<string name="remove_free">"Odinstalovat Settings Editor"</string>
+<string name="remove_free_desc">"Settings Editor PRO detekoval že Settings Editor je stále ještě nainstalován. Prosím odinstalujte jej tapnutím na tento text."</string>
+<string name="hide_suggestions"></string>
+<string name="discard"></string>
+</resources>

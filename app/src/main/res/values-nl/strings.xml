@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"Titel"</string>
+<string name="category">"Categorie"</string>
+<string name="intent_package">"App package om te starten"</string>
+<string name="fragment">"Instellingen Fragment om op te starten"</string>
+<string name="choose_icon">"Klik om een icoon te kiezen"</string>
+<string name="select_icon">"Selecteer een icoon"</string>
+<string name="install_fm_error">"Installeer alstublieft een Bestandsbeheerder"</string>
+<string name="setting_added">"Instelling is opgeslagen"</string>
+<string name="icon_by_app">"Selecteer een app icoon"</string>
+<string name="icon_by_fm">"Selecteer uit bestanden"</string>
+<string name="remove_tile">"Weet je zeker dat je deze instelling wilt verwijderen?"</string>
+<string name="apps">"Apps"</string>
+<string name="settings">"Instellingen"</string>
+<string name="trial_max_reached_title">"Je hebt het maximaal aantal instellingen van vijf bereikt"</string>
+<string name="trial_max_reached_text">"Koop alsjeblieft de pro versie zonder limiet"</string>
+<string name="how_to_use">"Hoe te gebruiken"</string>
+<string name="how_to_use_desc">"Klik op de floating action button om een item toe te voegen aan je Android Instellingen. Als je een item wilt veranderen, kan dat door erop te klikken. Lang klikken verwijdert een item"</string>
+<string name="launch_settings_title">"Start instellingen"</string>
+<string name="launch_settings_text">"Instellingen zal nu gestart worden om een lijst te krijgen van alle items"</string>
+<string name="dialog_error">"Error tijdens het opslaan. Heb je een categorie ingevuld en niet beide velden fragment en package om te starten ingevuld?"</string>
+<string name="modify_columns">"Verander het aantal kolommen naar"</string>
+<string name="icons_only">"Toon alleen iconen in Instellingen"</string>
+<string name="modify_icon_size">"Verander icoon grootte (pixels)"</string>
+<string name="remove_icon_bg">"Verwijder icoon achtergrond als deze er is"</string>
+<string name="installed_apps_icon">"Klikken op een icoon in de InstalledAppDetails activiteit start deze app"</string>
+<string name="color_filter_overlay">"Filter icoon met HTML kleur"</string>
+<string name="reset">"Reset"</string>
+<string name="reset_text">"Dit zal alle wijzigingen ongedaan maken"</string>
+<string name="show_package">"Laat package naam zien in de InstalledAppDetails activiteit"</string>
+<string name="app_author">"App door wilco375"</string>
+<string name="about">"Over"</string>
+<string name="contributors">"Bijdragers:"</string>
+<string name="categories">"Categorieën"</string>
+<string name="categories_desc">"Verander de categorieën"</string>
+<string name="tiles">"Items"</string>
+<string name="tiles_desc">"Verander de individuele items"</string>
+<string name="settings_desc">"Verander algemene instellingen"</string>
+<string name="remove_category">"Weet je zeker dat je deze categorie wilt verwijderen? Dit zal ook alle items in deze categorie verwijderen."</string>
+<string name="dashboard">"Dashboard"</string>
+<string name="app_details">"App-info"</string>
+<string name="hide_icon">"Verberg launcher icoon"</string>
+<string name="background_color">"Achtergrond kleur"</string>
+<string name="icon_by_list">"Selecteer uit lijst"</string>
+<string name="exit">"Afsluiten"</string>
+<string name="permissions_needed_desc">"Settings Editor heeft toegang tot het externe gegeugen nodig om correct te werken en veranderingen op te slaan. Als je dit afwijst kan je de app niet gebruiken."</string>
+<string name="permissions_needed">"Toestemming nodig"</string>
+<string name="permissions_denied">"Het lijkt erop dat je Android Mashmallow of hoger gebruikt, en dat je de toestemming hebt afgewezen.
+Lees en schrijftoestemming is nodig om alle veranderingen op te slaan. 
+Accepteer dit alsjeblieft, anders zal de app niet werken."</string>
+<string name="app_ready">"Klaar voor gebruik!"</string>
+<string name="app_ready_desc">"Je kunt de app nu gebruiken! 
+Veel plezier :)"</string>
+<string name="edit_settings">"Verander je instellingen eenvoudig"</string>
+<string name="edit_settings_desc">"Verander items, categorieën en tweak je instellingen!"</string>
+<string name="xposed_desc">"Verander items, categorieën en tweak je instellingen!"</string>
+<string name="thanks_pro_intro">"Heel erg bedankt voor je ondersteuning!
+Je hebt nu ongelimiteerde controle over je instellingen!"</string>
+<string name="pro_intro_title">"Pro Versie"</string>
+<string name="free_intro_title">"Gratis Versie"</string>
+<string name="limited_free_intro">"Deze versie is gelimiteerd tot vijf veranderingen in je instellingen. 
+Probeer het uit!"</string>
+<string name="text_color">"Tekstkleur"</string>
+<string name="backup">"Backup"</string>
+<string name="backup_desc">"Backup of herstel je huidige instellingen"</string>
+<string name="restore">"Herstel"</string>
+<string name="backup_success">"Backup succesvol gemaakt"</string>
+<string name="backup_error">"Error tijdens het maken van de backup, probeer alsjeblieft opnieuw"</string>
+<string name="restore_success">"Backup succesvol hersteld"</string>
+<string name="restore_error">"Error tijdens het herstellen van de backup, probeel alsjeblieft opnieuw"</string>
+<string name="backup_delete">"Weet je zeker dat je deze backup wilt verwijderen?"</string>
+<string name="restore_confirm">"Weet je zeker dat je deze backup wilt terugzetten?"</string>
+<string name="restore_confirm_desc">"Dit zal je huidige instellingen overschrijven."</string>
+<string name="hide_status_text">"Verberg status tekst"</string>
+<string name="xposed_not_active">"Xposed Module niet geactiveerd"</string>
+<string name="xposed_not_active_desc">"Het lijkt er op dat deze Xposed Module niet geactiveerd is. Activeer deze om de app te gebruiken"</string>
+<string name="description">"Beschrijving"</string>
+<string name="debug">"Debug-Modus"</string>
+<string name="license_fail_title">"Licensie check mislukt"</string>
+<string name="license_fail_desc">"Applicatie licensie is ongeldig (Error code %d). Koop deze applicatie alsjeblieft in de Google Play Store. Als je denkt dat dit een error is, neem dan alsjeblieft contact met me op via support@wilco375.com"</string>
+<string name="retry">"Probeer opnieuw"</string>
+<string name="checking_license">"Licensie controleren, een moment aljeblieft…"</string>
+<string name="remove_free">"Deïnstalleer Settings Editor"</string>
+<string name="remove_free_desc">"Settings Editor Pro heeft gedetecteerd dat Settings Editor nog geïnstalleerd is. Deïnstalleer deze alsjeblieft door op volgende te klikken."</string>
+<string name="hide_suggestions">"Verberg suggesties"</string>
+<string name="discard">"Wil je alle wijzigingen verwerpen?"</string>
+</resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"Titel"</string>
+<string name="category">"Kategorie"</string>
+<string name="intent_package">"Zu startendes Paket"</string>
+<string name="fragment">"Zu startendes Einstellungs-Fragment"</string>
+<string name="choose_icon">"Klick um Symbol auszuwählen"</string>
+<string name="select_icon">"Wähle ein Symbol"</string>
+<string name="install_fm_error">"Bitte installiere einen Dateimanager"</string>
+<string name="setting_added">"Einstellung ist gespeichert"</string>
+<string name="icon_by_app">"App-Symbol auswählen"</string>
+<string name="icon_by_fm">"Aus Datei auswählen"</string>
+<string name="remove_tile">"Dieses Element wirklich entfernen?"</string>
+<string name="apps">"Apps"</string>
+<string name="settings">"Einstellungen"</string>
+<string name="trial_max_reached_title">"Das Maximum von fünf Einstellungen ist erreicht"</string>
+<string name="trial_max_reached_text">"Bitte erwäge mich zu unterstützen, indem Du die Pro-Version kaufst"</string>
+<string name="how_to_use">"Wie man es benutzt"</string>
+<string name="how_to_use_desc">"Schwebenden Button berühren, um ein Element zu den Einstellungen hinzuzufügen. Zum Bearbeiten eines Elements einfach antippen. Langes antippen entfernt die Einstellung."</string>
+<string name="launch_settings_title">"Einstellungen starten"</string>
+<string name="launch_settings_text">"Einstellungen wird gestartet, um eine Übersicht der Elemente zu erhalten"</string>
+<string name="dialog_error">"Fehler beim Speichern. Ist eine Kategorie eingetragen und sind zu startendes Paket/Fragment ausgefüllt?"</string>
+<string name="modify_columns">"Ändere die Anzahl der Spalten auf"</string>
+<string name="icons_only">"Nur Symbole in Einstellungen anzeigen"</string>
+<string name="modify_icon_size">"Symbolgröße ändern (Pixel)"</string>
+<string name="remove_icon_bg">"Symbol-Hintergrund entfernen (falls vorhanden)"</string>
+<string name="installed_apps_icon">"Klick auf das Symbol unter \"App-Details\" startet die Anwendung"</string>
+<string name="color_filter_overlay">"Symbol-Farbe"</string>
+<string name="reset">"Zurücksetzen"</string>
+<string name="reset_text">"Dies wird alle Modifikationen zurücksetzen"</string>
+<string name="show_package">"Paketname der Anwendung unter \"App-Details\" anzeigen"</string>
+<string name="app_author">"App von wilco375"</string>
+<string name="about">"Über"</string>
+<string name="contributors">"Mitwirkende:"</string>
+<string name="categories">"Kategorien"</string>
+<string name="categories_desc">"Ändere die Kategorien"</string>
+<string name="tiles">"Elemente"</string>
+<string name="tiles_desc">"Ändere individuelle Elemente"</string>
+<string name="settings_desc">"Ändere generelle Einstellungen"</string>
+<string name="remove_category">"Sicher, dass Sie die Kategorie löschen möchten? Dies betrifft auch Elemente innerhalb der Kategorie."</string>
+<string name="dashboard">"Dashboard"</string>
+<string name="app_details">"App-Details"</string>
+<string name="hide_icon">"Launcher-Symbol verstecken"</string>
+<string name="background_color">"Hintergrundfarbe"</string>
+<string name="icon_by_list">"Aus Liste auswählen"</string>
+<string name="exit">"Ausgang"</string>
+<string name="permissions_needed_desc">"Settings Editor benötigt Zugriff auf den Speicher, um ordnungsgemäß zu laufen und die Konfiguration zu speichern.
+Du wirst die App nicht nutzen können, wenn Du es verweigerst."</string>
+<string name="permissions_needed">"Berechtigungen erforderlich"</string>
+<string name="permissions_denied">"Scheinbar läuft bei Dir Android Marshmallow oder höher und es wurden Berechtigungen verweigert.
+Die Berechtigung zum Lesen/Schreiben wird benötigt, um Anwendungsdaten und Konfigurationen zu speichern.
+Bitte erlaube dies oder die App wird nicht funktionieren."</string>
+<string name="app_ready">"Alles klar!"</string>
+<string name="app_ready_desc">"Die App steht zur Anwendung bereit!
+Viel Spaß :)"</string>
+<string name="edit_settings">"Bearbeite Deine Einstellungen mühelos"</string>
+<string name="edit_settings_desc">"Ändere Elemente, Kategorien und optimiere Deine Einstellungen!"</string>
+<string name="xposed_desc">"Ändern Sie Elemente, Kategorien und optimieren Sie Ihre Einstellungen!"</string>
+<string name="thanks_pro_intro">"Vielen Dank für Deinen Beitrag!
+Du hast nun uneingeschränkte Kontrolle auf Deine Einstellungen!"</string>
+<string name="pro_intro_title">"Pro-Version"</string>
+<string name="free_intro_title">"Kostenlose Version"</string>
+<string name="limited_free_intro">"Diese Version ist auf fünf Modifikationen der Einstellungen begrenzt.
+Probiere es aus!"</string>
+<string name="text_color">"Textfarbe"</string>
+<string name="backup">"Sicherung"</string>
+
+<!-- correction; -->
+<string name="backup_desc">"Sichern oder Wiederherstellen Ihrer aktuellen Einstellungen"</string>
+<string name="restore">"Wiederherstellung"</string>
+<string name="backup_success">"Sicherung erfolgreich angelegt"</string>
+<string name="backup_error">"Fehler beim Sichern! Bitte erneut versuchen"</string>
+<string name="restore_success">"Sicherung erfolgreich wiederhergestellt"</string>
+<string name="restore_error">"Fehler beim Wiederherstellen! Bitte erneut versuchen"</string>
+<string name="backup_delete">"Diese Sicherung wirklich löschen?"</string>
+<string name="restore_confirm">"Diese Sicherung wirklich wiederherstellen?"</string>
+<string name="restore_confirm_desc">"Dies wird die derzeitige Konfiguration überschreiben"</string>
+<string name="hide_status_text">"Statustext verbergen"</string>
+<string name="xposed_not_active">"Xposed-Modul nicht aktiviert"</string>
+<string name="xposed_not_active_desc">"Dieses Xposed-Modul scheint nicht aktiviert zu sein. Bitte aktiviere es, um die App nutzen zu können."</string>
+<string name="description">"Beschreibung"</string>
+<string name="debug">"Debug-Modus"</string>
+<string name="license_fail_title">"Lizenzprüfung fehlgeschlagen"</string>
+<string name="license_fail_desc">"Anwendungs-Lizenz ist ungültig (Fehlercode %d). Bitte erwerbe die Anwendung aus dem Google Play Store. Wenn Du meinst dies ist ein Fehler, dann kontaktiere mich bitte unter support@wilco375.com"</string>
+<string name="retry">"Wiederholen"</string>
+<string name="checking_license">"Prüfe Lizenz, bitte warten..."</string>
+<string name="remove_free">"Settings Editor entfernen"</string>
+<string name="remove_free_desc">"Settings Editor Pro hat festgestellt, dass Settings Editor noch installiert ist. Bitte deinstalliere die App mit Weiter."</string>
+<string name="hide_suggestions">"Vorschläge verbergen"</string>
+<string name="discard"></string>
+</resources>

@@ -1,0 +1,29 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#f44336</item>
+        <item name="colorPrimaryDark">#d32f2f</item>
+        <item name="colorAccent">#f44336</item>
+        <item name="colorControlNormal">#555</item>
+        <item name="colorControlActivated">#80f44336</item>
+        <item name="colorControlHighlight">#80f44336</item>
+    </style>
+
+    <style name="WhiteEditText">
+        <item name="colorControlNormal">#fff</item>
+        <item name="colorControlActivated">#fff</item>
+        <item name="colorControlHighlight">#fff</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+</resources>

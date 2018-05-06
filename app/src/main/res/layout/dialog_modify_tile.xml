@@ -1,0 +1,164 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/background_border">
+            <ImageView
+                android:id="@+id/iconImage"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="Icon Image"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/iconImageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/iconImage"
+                android:layout_alignTop="@+id/iconImage"
+                android:layout_alignRight="@+id/iconImage"
+                android:layout_alignBottom="@+id/iconImage"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:text="@string/choose_icon"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                android:id="@+id/textView"
+                android:textColor="#fff"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:inputType="text"
+                android:theme="@style/WhiteEditText"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:id="@+id/textView2"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="2dp"
+        android:textColor="#fff" />
+
+    <com.wilco375.settingseditor.layout.InstantAutoComplete
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/category"
+        android:layout_marginBottom="8dp"
+        android:inputType="text"
+        android:theme="@style/WhiteEditText"
+        android:textColor="#fff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:id="@+id/textView6"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="2dp"
+        android:textColor="#fff" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description"
+        android:layout_marginBottom="8dp"
+        android:inputType="text"
+        android:theme="@style/WhiteEditText"
+        android:textColor="#fff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intent_package"
+        android:id="@+id/textView3"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="2dp"
+        android:textColor="#fff" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/packageToLaunch"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text"
+            android:layout_weight="1"
+            android:theme="@style/WhiteEditText"
+            android:textColor="#fff" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/apps"
+            android:id="@+id/packageToLaunchButton"
+            android:layout_weight="0" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment"
+        android:id="@+id/textView4"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="2dp"
+        android:textColor="#fff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="com.android.settings."
+        android:id="@+id/textView5"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="2dp"
+        android:textColor="#fff" />
+
+    <com.wilco375.settingseditor.layout.InstantAutoComplete
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragmentToLaunch"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:inputType="text"
+        android:theme="@style/WhiteEditText"
+        android:textColor="#fff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@android:string/ok"
+        android:id="@+id/ok"/>
+
+</LinearLayout>

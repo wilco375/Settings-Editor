@@ -1,0 +1,35 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="settings"
+        android:enabled="true"
+        android:icon="@drawable/settings_shortcut"
+        android:shortcutShortLabel="@string/settings"
+        android:shortcutLongLabel="@string/settings">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.wilco375.settingseditorpro"
+            android:targetClass="com.wilco375.settingseditor.activity.SettingsActivity" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="categories"
+        android:enabled="true"
+        android:icon="@drawable/categories_shortcut"
+        android:shortcutShortLabel="@string/categories"
+        android:shortcutLongLabel="@string/categories">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.wilco375.settingseditorpro"
+            android:targetClass="com.wilco375.settingseditor.activity.CategoriesActivity" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="tiles"
+        android:enabled="true"
+        android:icon="@drawable/tiles_shortcut"
+        android:shortcutShortLabel="@string/tiles"
+        android:shortcutLongLabel="@string/tiles">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.wilco375.settingseditorpro"
+            android:targetClass="com.wilco375.settingseditor.activity.TilesActivity" />
+    </shortcut>
+</shortcuts>

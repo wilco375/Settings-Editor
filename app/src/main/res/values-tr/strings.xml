@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"Başlık"</string>
+<string name="category">"Kategori"</string>
+<string name="intent_package">"Başlatılacak paket"</string>
+<string name="fragment">"Başlatılacak Ayarlar Parçası"</string>
+<string name="choose_icon">"Simge seçmek için tıklayın"</string>
+<string name="select_icon">"Simge seç"</string>
+<string name="install_fm_error">"Lütfen bir Dosya Yöneticisi yükleyin"</string>
+<string name="setting_added">"Ayarlar kaydedildi"</string>
+<string name="icon_by_app">"Uygulama simgesi seç"</string>
+<string name="icon_by_fm">"Dosyalardan seç"</string>
+<string name="remove_tile">"Bu öğeyi kaldırmak istediğinize emin misiniz?"</string>
+<string name="apps">"Uygulamalar"</string>
+<string name="settings">"Ayarlar"</string>
+<string name="trial_max_reached_title">"Maksimum beş ayara ulaştınız"</string>
+<string name="trial_max_reached_text">"Lütfen, pro sürümü satın alarak bana destek verin"</string>
+<string name="how_to_use">"Nasıl kullanılır"</string>
+<string name="how_to_use_desc">"Android Ayarlarınıza bir öğe eklemek için yüzen eylem düğmesini tıklayın. Bir öğeyi düzenlemek isterseniz, sadece tıklayın. Uzun tıklama ayarı kaldırır"</string>
+<string name="launch_settings_title">"Ayarları başlat"</string>
+<string name="launch_settings_text">"Bu, tüm öğelerin listesini almak için ayarları başlatır"</string>
+<string name="dialog_error">"Kaydedilemiyor. Bir kategori ve hem paket hem de başlatılacak parça için bir şey girdiniz mi?"</string>
+<string name="modify_columns">"Sütun sayısını değiştir"</string>
+<string name="icons_only">"Ayarlarda sadece simgeleri göster"</string>
+<string name="modify_icon_size">"Simge boyutunu (piksel) değiştir"</string>
+<string name="remove_icon_bg">"Varsa simge arkaplanını kaldır"</string>
+<string name="installed_apps_icon">"Yüklü Uygulama Ayrıntıları etkinliğindeki uygulama simgesini tıkladığınızda uygulama başlatılır"</string>
+<string name="color_filter_overlay">"HTML renkli filtre simgesi rengi"</string>
+<string name="reset">"Sıfırla"</string>
+<string name="reset_text">"Bu, tüm değişiklikleri sıfırlayacak"</string>
+<string name="show_package">"Yüklü Uygulama Ayrıntıları etkinliğinde uygulama paketi adını göster"</string>
+<string name="app_author">"Geliştirici: wilco375"</string>
+
+<!-- Hi, this section is broken because of my name. Please fix it. Thanks -->
+<string name="about">"Hakkında"</string>
+<string name="contributors">"Katkıda bulunanlar:"</string>
+<string name="categories">"Kategoriler"</string>
+<string name="categories_desc">"Kategorileri değiştir"</string>
+<string name="tiles">"Öğeler"</string>
+<string name="tiles_desc">"Tek tek öğeleri değiştir"</string>
+<string name="settings_desc">"Genel ayarları değiştir"</string>
+<string name="remove_category">"Bu kategoriyi kaldırmak istediğinizden emin misiniz? Bu aynı zamanda bu kategorideki tüm öğeleri silecektir."</string>
+<string name="dashboard">"Gösterge paneli"</string>
+<string name="app_details">"Uygulama bilgileri"</string>
+<string name="hide_icon">"Başlatıcı simgesini gizle"</string>
+<string name="background_color">"Arkaplan rengi"</string>
+<string name="icon_by_list">"Listeden seç"</string>
+<string name="exit">"Çıkış"</string>
+<string name="permissions_needed_desc">"Uygulamanın düzgün çalışması ve ayarları saklaması için harici depolama alanına erişmesi gerekir.
+Reddederseniz, uygulamayı kullanamazsınız."</string>
+<string name="permissions_needed">"İzinler gerekli"</string>
+<string name="permissions_denied">"Android Marshmallow veya daha yeni bir sürümünü çalıştırıyor ve bazı izinleri reddetmiş görünüyorsunuz.
+Uygulama verilerini ve ayarlarını kaydetmek için Okuma/Yazma izinleri gereklidir.
+Lütfen kabul edin ya da uygulamayı çalıştıramayın."</string>
+<string name="app_ready">"Hazırsınız!"</string>
+<string name="app_ready_desc">"Uygulama kullanıma hazır!
+İyi eğlenceler :)"</string>
+<string name="edit_settings">"Ayarlarınızı kolayca düzenleyin"</string>
+<string name="edit_settings_desc">"Öğeleri, kategorileri değiştirin ve ayarlarınızı düzenleyin!"</string>
+<string name="xposed_desc">"Öğeleri, kategorileri değiştirin ve ayarlarınızı düzenleyin!"</string>
+<string name="thanks_pro_intro">"Desteğiniz için çok teşekkür ederim!
+Artık ayarlarınızı sınırsız kontrol edebilirsiniz!"</string>
+<string name="pro_intro_title">"Pro Sürüm"</string>
+<string name="free_intro_title">"Ücretsiz Sürüm"</string>
+<string name="limited_free_intro">"Bu sürüm, ayarlarınızda beş değişiklikle sınırlıdır.
+Deneyin!"</string>
+<string name="text_color">"Metin rengi"</string>
+<string name="backup">"Yedekle"</string>
+<string name="backup_desc">"Mevcut ayarlarınızı yedekleyin veya geri yükleyin"</string>
+<string name="restore">"Geri yükle"</string>
+<string name="backup_success">"Yedekleme başarıyla yapıldı"</string>
+<string name="backup_error">"Yedekleme yaparken hata oluştu, lütfen tekrar deneyin"</string>
+<string name="restore_success">"Yedek başarıyla geri yüklendi"</string>
+<string name="restore_error">"Yedek geri yüklenirken hata oluştu, lütfen tekrar deneyin"</string>
+<string name="backup_delete">"Bu yedeği silmek istediğinize emin misiniz?"</string>
+<string name="restore_confirm">"Bu yedeği geri yüklemek istediğinize emin misiniz?"</string>
+<string name="restore_confirm_desc">"Bu geçerli ayarları geçersiz kılacaktır."</string>
+<string name="hide_status_text">"Durum metnini gizle"</string>
+<string name="xposed_not_active">"Xposed Modülü etkin değil"</string>
+<string name="xposed_not_active_desc">"Bu Xposed Modülü etkin değil gibi görünüyor. Uygulamayı kullanmak için lütfen etkinleştirin"</string>
+<string name="description">"Açıklama"</string>
+<string name="debug">"Hata ayıklama modu"</string>
+<string name="license_fail_title">"Lisans kontrolü başarısız"</string>
+<string name="license_fail_desc">"Uygulama lisansı geçersiz (Hata kodu %d). Lütfen uygulamayı Play Store'dan satın alın. Bunun bir hata olduğuna inanıyorsanız, lütfen benimle support@wilco375 adresinden iletişime geçin."</string>
+<string name="retry">"Tekrar dene"</string>
+<string name="checking_license">"Lisans kontrolü yapılıyor, lütfen bekleyin..."</string>
+<string name="remove_free">"Settings Editor'ü kaldır"</string>
+<string name="remove_free_desc">"Settings Editor Pro, Settings Editor'ün yüklü olduğunu algıladı. Lütfen sonrakiyi tıklayarak bu uygulamayı kaldırın."</string>
+<string name="hide_suggestions">"Önerileri gizle"</string>
+<string name="discard">"Tüm değişiklikleri iptal etmek istiyor musunuz?"</string>
+</resources>

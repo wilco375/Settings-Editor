@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"Título"</string>
+<string name="category">"Categoria"</string>
+<string name="intent_package">"Pacote a lançar"</string>
+<string name="fragment">"Configurações do Fragmento a lançar"</string>
+<string name="choose_icon">"Clique para escolher um ícone"</string>
+<string name="select_icon">"Selecione um ícone"</string>
+<string name="install_fm_error">"Por favor instale um Gerenciador de Arquivos"</string>
+<string name="setting_added">"Configuração salva"</string>
+<string name="icon_by_app">"Selecione um ícone de app"</string>
+<string name="icon_by_fm">"Selecionar dos arquivos"</string>
+<string name="remove_tile">"Tem certeza de que deseja remover este item?"</string>
+<string name="apps">"Apps"</string>
+<string name="settings">"Configurações"</string>
+<string name="trial_max_reached_title">"Você atingiu o máximo de cinco configurações"</string>
+<string name="trial_max_reached_text">"Por favor, considere apoiar-me comprando a versão Pro"</string>
+<string name="how_to_use">"Como usar"</string>
+<string name="how_to_use_desc">"Clique no botão de ação flutuante para adicionar um item às suas Configurações do Android. Se você quiser editar um item, basta clicar nele. O clique longo remove a configuração"</string>
+<string name="launch_settings_title">"Lançar configurações"</string>
+<string name="launch_settings_text">"Isto irá iniciar as configurações para obter uma lista de todos os itens"</string>
+<string name="dialog_error">"Erro ao salvar. Você entrou numa categoria e não digitou algo nos campos tanto do pacote como no de fragmento a lançar?"</string>
+<string name="modify_columns">"Alterar a quantidade de colunas para"</string>
+<string name="icons_only">"Somente mostrar ícones nas Configurações"</string>
+<string name="modify_icon_size">"Alterar tamanho dos ícones (pixels)"</string>
+<string name="remove_icon_bg">"Remover fundo do ícone se presente"</string>
+<string name="installed_apps_icon">"Clicando no ícone do app na atividade Detalhes do Aplicativo Instalado vai lançar o aplicativo"</string>
+<string name="color_filter_overlay">"Filtrar cor do ícone com cor HTML"</string>
+<string name="reset">"Redefinir"</string>
+<string name="reset_text">"Isso vai redefinir todas as modificações"</string>
+<string name="show_package">"Mostrar nome do pacote nos Detalhes do Aplicativo Instalado"</string>
+<string name="app_author">"App por wilco375"</string>
+<string name="about">"Sobre"</string>
+<string name="contributors">"Contribuintes"</string>
+<string name="categories">"Categorias"</string>
+<string name="categories_desc">"Alterar categorias"</string>
+<string name="tiles">"Ítens"</string>
+<string name="tiles_desc">"Alterar ítens individuais"</string>
+<string name="settings_desc">"Alterar configurações gerais"</string>
+<string name="remove_category">"Tem certeza de que deseja remover esta categoria? Isso também irá eliminar todos os ítens dentro desta categoria."</string>
+<string name="dashboard">"Configurações do Android"</string>
+<string name="app_details">"Detahes do aplicativo"</string>
+<string name="hide_icon">"Esconder icone do launcher"</string>
+<string name="background_color">"Cor de fundo"</string>
+<string name="icon_by_list">"Selecione da lista"</string>
+<string name="exit">"Sair"</string>
+<string name="permissions_needed_desc">"O Settings Editor precisa de acesso à memória externa para funcionar corretamente e armazenar as configurações.
+Se você negar isso, você não vai conseguir usar o app."</string>
+<string name="permissions_needed">"Permissões necessárias"</string>
+<string name="permissions_denied">"Parece que você está executando o Android Marshmallow ou superior, e que você negou algumas permissões.
+As permissões de Leitura / Gravação são necessárias para salvar dados e configurações do aplicativo.
+Por favor aceite-os ou o aplicativo não funcionará."</string>
+<string name="app_ready">"Você tem tudo pronto!"</string>
+<string name="app_ready_desc">"O aplicativo está pronto para ser usado!
+Divirta-se :)"</string>
+<string name="edit_settings">"Edite suas configurações facilmente"</string>
+<string name="edit_settings_desc">"Altere ítens, categorias e melhore suas configurações!"</string>
+<string name="xposed_desc">"Altere itens, categorias e melhore suas configurações!"</string>
+<string name="thanks_pro_intro">"Muito obrigado pelo seu apoio!
+Agora você tem controle ilimitado de suas configurações!"</string>
+<string name="pro_intro_title">"Versão Pro"</string>
+<string name="free_intro_title">"Versão Free"</string>
+<string name="limited_free_intro">"Essa versão é limitada a 5 modificações nas suas configurações.
+Experimente agora!"</string>
+<string name="text_color">"Cor do Texto"</string>
+<string name="backup">"Backup"</string>
+<string name="backup_desc">"Salvar ou restaurar suas configurações atuais"</string>
+<string name="restore">"Restaurar"</string>
+<string name="backup_success">"Backup feito com sucesso"</string>
+<string name="backup_error">"Erro ao fazer backup, por favor tente novamente"</string>
+<string name="restore_success">"Backup restaurado com sucesso"</string>
+<string name="restore_error">"Erro ao restaurar o backup, por favor tente novamente"</string>
+<string name="backup_delete">"Tem certeza de que deseja excluir este backup?"</string>
+<string name="restore_confirm">"Tem certeza de que deseja restaurar este backup?"</string>
+<string name="restore_confirm_desc">"Isto substituirá a configuração atual."</string>
+<string name="hide_status_text">"Esconder texto de estado"</string>
+<string name="xposed_not_active">"Módulo Xposed não ativado"</string>
+<string name="xposed_not_active_desc">"Este Módulo Xposed não parece estar ativado. Por favor ative-o para usar o aplicativo"</string>
+<string name="description">"Descrição"</string>
+<string name="debug">"Modo de depuração"</string>
+<string name="license_fail_title">"A verificação da licença falhou"</string>
+<string name="license_fail_desc">"A licença do aplicativo é inválida (Error code % d). Por favor compre o aplicativo na Google Play Store. Se você acha que isto é um erro, entre em contato comigo em support@wilco375.com"</string>
+<string name="retry">"Tentar novamente"</string>
+<string name="checking_license">"Verificando a licença, por favor aguarde ..."</string>
+<string name="remove_free">"Desinstalar Settings Editor"</string>
+<string name="remove_free_desc">"O Settings Editor Pro detectou que o Settings Editor ainda está instalado. Por favor, desinstale esse aplicativo clicando em seguida."</string>
+<string name="hide_suggestions"></string>
+<string name="discard"></string>
+</resources>

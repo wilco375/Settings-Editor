@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"标题"</string>
+<string name="category">"分类"</string>
+<string name="intent_package">"设置到启动器"</string>
+<string name="fragment">"设置到启动器"</string>
+<string name="choose_icon">"点击来选择图标"</string>
+<string name="select_icon">"选择一个图标"</string>
+<string name="install_fm_error">"请安装一个文件管理器后，再试一次"</string>
+<string name="setting_added">"设置已保存"</string>
+<string name="icon_by_app">"从应用图标中选择"</string>
+<string name="icon_by_fm">"从文件中选择"</string>
+<string name="remove_tile">"你确定想要移除这个"</string>
+<string name="apps">"应用"</string>
+<string name="settings">"设置"</string>
+<string name="trial_max_reached_title">"你已达到最大更改设定次数(5次)"</string>
+<string name="trial_max_reached_text">"请考虑支持作者购买专业版来解锁限制"</string>
+<string name="how_to_use">"如何使用"</string>
+<string name="how_to_use_desc">"点击顶部的按钮来添加，编辑或删除安卓中的设置。如果你想编辑一个应用，请点击它。长按来删除设置"</string>
+<string name="launch_settings_title">"启动设置"</string>
+<string name="launch_settings_text">"这将启动系统设置然后获得一个系统设置的详细列表（多次出现可能此系统不适用本软件）"</string>
+<string name="dialog_error">"保存时发生错误，你确定选择的是对的？"</string>
+<string name="modify_columns">"改变列的数量到"</string>
+<string name="icons_only">"只显示图标设置"</string>
+<string name="modify_icon_size">"更改图标大小(像素)"</string>
+<string name="remove_icon_bg">"删除图标背景（如果可行）"</string>
+<string name="installed_apps_icon">"点击应用图标，来启动应用程序"</string>
+<string name="color_filter_overlay">"选择图标的颜色"</string>
+<string name="reset">"重置"</string>
+<string name="reset_text">"这将重置你所有执行的修改"</string>
+<string name="show_package">"在设置中显示细节"</string>
+<string name="app_author">"本app由wilco375开发"</string>
+<string name="about">"关于"</string>
+<string name="contributors">"感谢:"</string>
+<string name="categories">"分类"</string>
+<string name="categories_desc">"更改类别"</string>
+<string name="tiles">"项目"</string>
+<string name="tiles_desc">"更改单个项目"</string>
+<string name="settings_desc">"更改常规设置"</string>
+<string name="remove_category">"你确定要删除这个分类？这将会删除你分类内的所有项目。"</string>
+<string name="dashboard">"仪表盘"</string>
+<string name="app_details">"应用信息"</string>
+<string name="hide_icon">"隐藏"</string>
+<string name="background_color">"背景颜色"</string>
+<string name="icon_by_list">"从列表中选择"</string>
+<string name="exit">"退出"</string>
+<string name="permissions_needed_desc">"设置编辑器需要访问外部存储器和存储配置。
+如果你不允许，您将无法使用本程序。"</string>
+<string name="permissions_needed">"需要权限"</string>
+<string name="permissions_denied">"看起来你正在运行Android 5.0或更高的系统版本,请给予软件权限。
+保存应用程序数据和配置需要读写权限。
+请给予他们权限，否则您将无法使用本程序。"</string>
+<string name="app_ready">"一切就绪!"</string>
+<string name="app_ready_desc">"此程序已准备好来给您使用！
+玩的愉快:)"</string>
+<string name="edit_settings">"方便地编辑您的设置"</string>
+<string name="edit_settings_desc">"改变项目，分类和调整你的设置!"</string>
+<string name="xposed_desc">"改变项目，分类和调整你的设置!"</string>
+<string name="thanks_pro_intro">"感谢你的支持!
+你现在已可以无限制更改设置！"</string>
+<string name="pro_intro_title">"专业版"</string>
+<string name="free_intro_title">"免费版"</string>
+<string name="limited_free_intro">"此版本最多只能进行五次设置更改!
+试试吧！"</string>
+<string name="text_color">"文字颜色"</string>
+<string name="backup">"备份"</string>
+<string name="backup_desc">"备份或恢复设置"</string>
+<string name="restore">"恢复"</string>
+<string name="backup_success">"成功创建备份"</string>
+<string name="backup_error">"在创建备份时发生错误，请重试"</string>
+<string name="restore_success">"备份已成功还原"</string>
+<string name="restore_error">"在恢复备份时发生错误，请重试"</string>
+<string name="backup_delete">"你确定要删除这个备份吗？"</string>
+<string name="restore_confirm">"你确定要恢复这个备份吗？"</string>
+<string name="restore_confirm_desc">"这将覆盖当前设置。"</string>
+<string name="hide_status_text">"隐藏状态文本"</string>
+<string name="xposed_not_active">"xposed模块没有启动"</string>
+<string name="xposed_not_active_desc">"Xposed模块似乎并没有启动，请启动它来使用本APP"</string>
+<string name="description">"描述"</string>
+<string name="debug">"调试模式"</string>
+<string name="license_fail_title">"许可检查失败"</string>
+<string name="license_fail_desc">"许可验证错误(错误码 %d)，请在谷歌商店购买后再来。如果你相信这是一个错误，请在support@wilco375.com联系我。（国内可能需要科学上网）"</string>
+<string name="retry">"重试"</string>
+<string name="checking_license">"正在检查许可，请稍后"</string>
+<string name="remove_free">"卸载Settings Editor"</string>
+<string name="remove_free_desc">"发现免费版依旧安装在你的手机上，请点击下一步来卸载它"</string>
+<string name="hide_suggestions"></string>
+<string name="discard"></string>
+</resources>

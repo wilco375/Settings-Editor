@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"Titolo"</string>
+<string name="category">"Categoria"</string>
+<string name="intent_package">"Applicazione da lanciare"</string>
+<string name="fragment">"Settings Fragment da lanciare"</string>
+<string name="choose_icon">"Click per scegliere l'icona"</string>
+<string name="select_icon">"Scegli un'icona"</string>
+<string name="install_fm_error">"Per favore installare un File Manager"</string>
+<string name="setting_added">"Impostazioni salvate"</string>
+<string name="icon_by_app">"Scegli l'icona di una app"</string>
+<string name="icon_by_fm">"Scegli da file"</string>
+<string name="remove_tile">"Sei sicuro di voler rimuovere questa voce?"</string>
+<string name="apps">"Applicazioni"</string>
+<string name="settings">"Impostazioni"</string>
+<string name="trial_max_reached_title">"Hai raggiunto il massimo di 5 modifche"</string>
+<string name="trial_max_reached_text">"Prendi in considerazione di supportarmi acquistando la versione pro"</string>
+<string name="how_to_use">"Come si usa"</string>
+<string name="how_to_use_desc">"Premi il pulsante flottante per aggiungere voci alle impostazioni di Android. Se vuoi modificare una voce, fai click su di essa. Una pressione prolungata rimuove la voce."</string>
+<string name="launch_settings_title">"Apertura impostazioni"</string>
+<string name="launch_settings_text">"Verrà aperto il pannello impostazioni per ottenere una lista delle voci"</string>
+<string name="dialog_error">"Errore salvando le modifiche. Hai introdotto una categoria o non hai messo nulla né nel campo Applicazione da lanciare né in Settings Fragment da lanciare?"</string>
+<string name="modify_columns">"Cambia il numero di colonne a"</string>
+<string name="icons_only">"Mostra solo icone in Impostazioni"</string>
+<string name="modify_icon_size">"Cambia le dimensioni delle icone (pixels)"</string>
+<string name="remove_icon_bg">"Rimuovi lo sfondo delle icone se presente"</string>
+<string name="installed_apps_icon">"Un click sull'icona in InstalledAppDetails activiy lancia l'applicazione"</string>
+<string name="color_filter_overlay">"Filtra il colore delle icone con un colore HTML"</string>
+<string name="reset">"Reset"</string>
+<string name="reset_text">"Questo eliminerà tutte le modifiche"</string>
+<string name="show_package">"Mostra il nome dell'applicazione in InstalledAppDetails activiy"</string>
+<string name="app_author">"App di wilco375"</string>
+<string name="about">"Info"</string>
+<string name="contributors">"Hanno contribuito:"</string>
+<string name="categories">"Categorie"</string>
+<string name="categories_desc">"Modifica le categorie"</string>
+<string name="tiles">"Voci"</string>
+<string name="tiles_desc">"Modifica le singole voci"</string>
+<string name="settings_desc">"Modifica le impostazioni generali"</string>
+<string name="remove_category">"Sei sicuro di voler rimuovere questa categoria? Ciò cancellerà anche tutte le voci presenti nella categoria."</string>
+<string name="dashboard">"Cruscotto"</string>
+<string name="app_details">"Informazioni applicazione"</string>
+<string name="hide_icon">"Nascondi l'icona nel launcher"</string>
+<string name="background_color">"Colore dello sfondo"</string>
+<string name="icon_by_list">"Scegli dalla lista"</string>
+<string name="exit">"Esci"</string>
+<string name="permissions_needed_desc">"Settings Editor necessita di accedere allo storage per funzionare e salvare la configurazione.
+Se rifiuti, non sarai in grado di usare l'applicazione."</string>
+<string name="permissions_needed">"Permessi richiesti"</string>
+<string name="permissions_denied">"Sembra tu stia usando Android Marshmallow o successivo, e che tu abbia negato alcuni permessi.
+I permessi di lettura/scrittura sono necessari per salvare informazioni e configurazioni.
+Concedili o l'applicazione non funzionerà."</string>
+<string name="app_ready">"Tutto pronto!"</string>
+<string name="app_ready_desc">"L'app è pronta per essere usata! Buon divertimento :)"</string>
+<string name="edit_settings">"Modifica facilmente le impostazioni"</string>
+<string name="edit_settings_desc">"Modifica voci, categorie e metti a punto le Impostazioni!"</string>
+<string name="xposed_desc">"Modifica voci, categorie e metti a punto le Impostazioni!"</string>
+<string name="thanks_pro_intro">"Grazie del tuo supporto!
+Ora hai il completo controllo delle Impostazioni!"</string>
+<string name="pro_intro_title">"Versione Pro"</string>
+<string name="free_intro_title">"Versione gratuita"</string>
+<string name="limited_free_intro">"Questa versione è limitata a 5 modifiche. Provala!"</string>
+<string name="text_color">"Colore testo"</string>
+<string name="backup">"Backup"</string>
+<string name="backup_desc">"Backup e ripristino delle impostazioni."</string>
+<string name="restore">"Ripristina"</string>
+<string name="backup_success">"Backup completato con successo"</string>
+<string name="backup_error">"Errore effettuando il backup, riprovare."</string>
+<string name="restore_success">"Backup ripristinato con successo"</string>
+<string name="restore_error">"Errore ripristinando il backup, riprovare."</string>
+<string name="backup_delete">"Sei sicuro di cancellare questo backup?"</string>
+<string name="restore_confirm">"Sei sicuro di ripristinare questo backup?"</string>
+<string name="restore_confirm_desc">"Questo sovrascriverà la configurazione corrente."</string>
+<string name="hide_status_text">"Nascondi stato"</string>
+<string name="xposed_not_active">"Modulo Xposed non attivo"</string>
+<string name="xposed_not_active_desc">"Il modulo Xposed sembra non essere attivo. Attivalo per usare l'applicazione"</string>
+<string name="description">"Descrizione"</string>
+<string name="debug">"Modalità debug"</string>
+<string name="license_fail_title">"Controllo licenza fallito"</string>
+<string name="license_fail_desc">"Licenza non valida (Codice d'errore %d). Per favore acquista l'applicazione da Google Play Store. Se ritieni sia un errore, contattami a support@wilco375.com"</string>
+<string name="retry">"Riprova"</string>
+<string name="checking_license">"Verifica licenza, attendi ..."</string>
+<string name="remove_free">"Rimuovi Settings Editor"</string>
+<string name="remove_free_desc">"Settings Editor sembra ancora installato. Per favore rimuovilo cliccando avanti."</string>
+<string name="hide_suggestions"></string>
+<string name="discard"></string>
+</resources>

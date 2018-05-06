@@ -1,0 +1,12 @@
+.gradle
+/local.properties
+/gradle.properties
+/.idea/
+.DS_Store
+/build
+/app/build
+/dragSortListView/build
+app/free
+app/pro
+/captures
+/javadoc

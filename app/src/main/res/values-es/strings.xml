@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="title">"Título"</string>
+<string name="category">"Categoría"</string>
+<string name="intent_package">"Paquete para iniciar"</string>
+<string name="fragment">"Fragmento de ajustes a iniciar"</string>
+<string name="choose_icon">"Clic para elegir icono"</string>
+<string name="select_icon">"Selecciona icono"</string>
+<string name="install_fm_error">"Instala un gestor de archivos"</string>
+<string name="setting_added">"Ajustes guardados"</string>
+<string name="icon_by_app">"Selecciona app de iconos"</string>
+<string name="icon_by_fm">"Seleccionar desde archivos"</string>
+<string name="remove_tile">"¿Seguro que quieres quitar este objeto?"</string>
+<string name="apps">"Aplicaciones"</string>
+<string name="settings">"Ajustes"</string>
+<string name="trial_max_reached_title">"Has alcanzado el máximo de cinco ajustes"</string>
+<string name="trial_max_reached_text">"Por favor, considera apoyarme comprando la versión de pago"</string>
+<string name="how_to_use">"Cómo usarlo"</string>
+<string name="how_to_use_desc">"Clica el botón de acción flotante para añadir un objeto a tus Ajustes. Si quieres editar uno, haz clic en él. Mantener pulsado quita el ajuste"</string>
+<string name="launch_settings_title">"Iniciar ajustes"</string>
+<string name="launch_settings_text">"Esto iniciará los ajustes para obtener una lista de los objetos"</string>
+<string name="dialog_error">"Error mientras se guardaba. ¿Pusiste una categoría y no algo entre el paquete y el fragmento para mostrar el campo?"</string>
+<string name="modify_columns">"Cambiar la cantidad de columnas a"</string>
+<string name="icons_only">"Solo mostrar iconos en Ajustes"</string>
+<string name="modify_icon_size">"Cambiar tamaño de icono (px)"</string>
+<string name="remove_icon_bg">"Eliminar fondo del icono si existe"</string>
+<string name="installed_apps_icon">"Haciendo clic en el icono de la actividad InstalledAppDetails iniciará la app"</string>
+<string name="color_filter_overlay">"Filtrar color de icono con HTML"</string>
+<string name="reset">"Resetear"</string>
+<string name="reset_text">"Esto reseteará todas las modificaciones"</string>
+<string name="show_package">"Mostar el paquete de la app en InstalledAppDetails"</string>
+<string name="app_author">"Aplicación por wilco375"</string>
+<string name="about">"Sobre la app"</string>
+<string name="contributors">"Han contribuido:"</string>
+<string name="categories">"Categorías"</string>
+<string name="categories_desc">"Cambiar las categorías"</string>
+<string name="tiles">"Objetos"</string>
+<string name="tiles_desc">"Cambiar los objetos individuales"</string>
+<string name="settings_desc">"Cambiar ajustes generales"</string>
+<string name="remove_category">"¿Estás seguro de querer quitar esta categoría? También quitará los objetos que estén dentro de ella."</string>
+<string name="dashboard">"Escritorio"</string>
+<string name="app_details">"Información de la app"</string>
+<string name="hide_icon">"Ocultar icono de inicio"</string>
+<string name="background_color">"Color de fondo"</string>
+<string name="icon_by_list">"Seleccionar desde lista"</string>
+<string name="exit">"Salir"</string>
+<string name="permissions_needed_desc">"Editor de Ajustes necesita acceder al almacenamiento externo para ejecutarse y almacenar la configuración. Si se deniega, no funcionará."</string>
+<string name="permissions_needed">"Permisos necesarios"</string>
+<string name="permissions_denied">"Parece que estás ejecutando Android Marshmallow o superior, y haz denegado algún permiso.
+Permisos de lectura y escritura son necesarios para guardar los datos y configuración.
+Actívalos o la aplicación no funcionará."</string>
+<string name="app_ready">"¡Todo correcto!"</string>
+<string name="app_ready_desc">"¡Aplicación lista para usar!
+Diviértete :)"</string>
+<string name="edit_settings">"Edita tus ajustes fácilmente"</string>
+<string name="edit_settings_desc">"¡Cambia objetos, categorías y toquetea tus ajustes!"</string>
+<string name="xposed_desc">"¡Cambia objetos, categorías y toquetea tus ajustes!"</string>
+<string name="thanks_pro_intro">"¡Muchísimas gracias por tu ayuda!
+¡Ahora tienes control ilimitado de tus ajustes!"</string>
+<string name="pro_intro_title">"Versión de pago"</string>
+<string name="free_intro_title">"Versión gratuita"</string>
+<string name="limited_free_intro">"Esta versión está limitada a cinco modificaciones en tus ajustes.
+¡Pruébalo!"</string>
+<string name="text_color">"Color de texto"</string>
+<string name="backup">"Copia de seguridad"</string>
+<string name="backup_desc">"Copia o restaura tus ajustes actuales"</string>
+<string name="restore">"Restaurar"</string>
+<string name="backup_success">"Copia realizada correctamente"</string>
+<string name="backup_error">"Error al hacer la copia, inténtalo de nuevo"</string>
+<string name="restore_success">"Copia restaurada correctamente"</string>
+<string name="restore_error">"Error al restaurar copia, inténtalo de nuevo"</string>
+<string name="backup_delete">"¿Estás seguro de querer borrar esta copia?"</string>
+<string name="restore_confirm">"¿Estás seguro de querer restaurar esta copia?"</string>
+<string name="restore_confirm_desc">"Esto sobrescribirá la configuración actual."</string>
+<string name="hide_status_text">"Ocultar texto de estado"</string>
+<string name="xposed_not_active">"Módulo de Xposed no activado"</string>
+<string name="xposed_not_active_desc">"El módulo de Xposed parece que no está activo. Por favor, actívalo para usar la app"</string>
+<string name="description">"Descripción"</string>
+<string name="debug">"Modo depuración"</string>
+<string name="license_fail_title">"Comprobación de licencia fallida"</string>
+<string name="license_fail_desc">"La licencia de la aplicación no es válida (Error %d).
+Por favor, compra la aplicación desde Google Play. Si piensas que es un error, contáctame a support@wilco375.com"</string>
+<string name="retry">"Reintentar"</string>
+<string name="checking_license">"Comprobando, espere..."</string>
+<string name="remove_free">"Desinstalar Editor de Ajustes"</string>
+<string name="remove_free_desc">"Editor de Ajustes Pro ha detectado que el Editor de Ajustes sigue instalado. Por favor, desinstálalo clicando siguiente."</string>
+</resources>
