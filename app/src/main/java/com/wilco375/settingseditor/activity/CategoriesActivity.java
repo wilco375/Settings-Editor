@@ -2,7 +2,6 @@ package com.wilco375.settingseditor.activity;
 
 import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 
 import com.mobeta.android.dslv.DragSortListView;
@@ -46,7 +44,7 @@ public class CategoriesActivity extends BaseActivity {
 
         // Create array of category titles
         final List<String> categoryTitles = new ArrayList<>();
-        for(SerializableDashboardCategory category : categories){
+        for (SerializableDashboardCategory category : categories) {
             categoryTitles.add(category.title);
         }
 
@@ -106,6 +104,7 @@ public class CategoriesActivity extends BaseActivity {
 
     /**
      * Options menu inflater
+     *
      * @param menu Menu to be inflated
      * @return success
      */
@@ -117,6 +116,7 @@ public class CategoriesActivity extends BaseActivity {
 
     /**
      * On option in menu selected
+     *
      * @param item Item selected
      * @return success
      */
@@ -128,12 +128,12 @@ public class CategoriesActivity extends BaseActivity {
             case (R.id.settings):
                 // Kill and restart settings
                 ActivityManager am = (ActivityManager) activity.getSystemService(ACTIVITY_SERVICE);
-                if(am != null)
+                if (am != null)
                     am.killBackgroundProcesses("com.android.settings");
 
                 PackageManager pm = activity.getPackageManager();
                 Intent i = pm.getLaunchIntentForPackage("com.android.settings");
-                if(i != null) {
+                if (i != null) {
                     i.addCategory(Intent.CATEGORY_LAUNCHER);
                     activity.startActivity(i);
                 }

@@ -1,7 +1,6 @@
 package com.wilco375.settingseditor.activity;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,10 +61,10 @@ public class BackupActivity extends AppCompatActivity {
         updateList();
     }
 
-    private void updateList(){
+    private void updateList() {
         final ListView restoreListView = findViewById(R.id.restoreListView);
         List<String> backupFiles = new ArrayList<>();
-        if(new File(backupPath).listFiles() != null) {
+        if (new File(backupPath).listFiles() != null) {
             for (File file : new File(backupPath).listFiles()) {
                 backupFiles.add(file.getName().replace(".se", ""));
             }
@@ -76,16 +74,18 @@ public class BackupActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(BackupActivity.this);
                 builder.setTitle(R.string.restore_confirm);
                 builder.setMessage(R.string.restore_confirm_desc);
-                builder.setNegativeButton(android.R.string.cancel, (dialogInterface, i14) -> { });
+                builder.setNegativeButton(android.R.string.cancel, (dialogInterface, i14) -> {
+                });
                 builder.setPositiveButton(android.R.string.ok, (dialogInterface, i13) -> restoreFile(((TextView) view.findViewById(android.R.id.text1)).getText().toString()));
                 builder.show();
             });
             restoreListView.setOnItemLongClickListener((adapterView, view, i, l) -> {
                 AlertDialog.Builder builder = new AlertDialog.Builder(BackupActivity.this);
                 builder.setTitle(R.string.backup_delete);
-                builder.setNegativeButton(android.R.string.cancel, (dialogInterface, i12) -> { });
+                builder.setNegativeButton(android.R.string.cancel, (dialogInterface, i12) -> {
+                });
                 builder.setPositiveButton(android.R.string.ok, (dialogInterface, i1) -> {
-                    new File(backupPath, ((TextView) view.findViewById(android.R.id.text1)).getText().toString()+".se").delete();
+                    new File(backupPath, ((TextView) view.findViewById(android.R.id.text1)).getText().toString() + ".se").delete();
 
                     updateList();
                 });
@@ -98,7 +98,7 @@ public class BackupActivity extends AppCompatActivity {
         }
     }
 
-    private void createBackup(String fileName){
+    private void createBackup(String fileName) {
         try {
             File zipOut = new File(backupPath, fileName + ".se");
             zipOut.getParentFile().mkdirs();
@@ -115,17 +115,17 @@ public class BackupActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.backup_success, Toast.LENGTH_LONG).show();
 
             updateList();
-        }catch (ZipException e){
+        } catch (ZipException e) {
             e.printStackTrace();
             Toast.makeText(this, R.string.backup_error, Toast.LENGTH_LONG).show();
         }
     }
 
-    private void restoreFile(String fileName){
-        try{
+    private void restoreFile(String fileName) {
+        try {
             File zipIn = new File(backupPath, fileName + ".se");
             File dirOut = new File(IOManager.FILEPATH);
-            for(File file : dirOut.listFiles()){
+            for (File file : dirOut.listFiles()) {
                 file.delete();
             }
 
@@ -133,7 +133,7 @@ public class BackupActivity extends AppCompatActivity {
             zipFile.extractAll(dirOut.toString());
 
             Toast.makeText(this, R.string.restore_success, Toast.LENGTH_LONG).show();
-        }catch (ZipException e){
+        } catch (ZipException e) {
             e.printStackTrace();
             Toast.makeText(this, R.string.restore_error, Toast.LENGTH_LONG).show();
         }
@@ -141,6 +141,7 @@ public class BackupActivity extends AppCompatActivity {
 
     /**
      * Set ListView to full height
+     *
      * @param listView listView to set height of
      */
     private void setListViewHeight(ListView listView) {

@@ -117,7 +117,7 @@ public class TilesActivity extends BaseActivity {
 
         // Add all installed apps to array
         new Thread(() -> {
-            if(appsList.size() == 0) {
+            if (appsList.size() == 0) {
                 final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
                 mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
                 for (ResolveInfo app : getPackageManager().queryIntentActivities(mainIntent, 0)) {
@@ -129,7 +129,7 @@ public class TilesActivity extends BaseActivity {
 
         // Show tutorial on first launch
         SharedPreferences sp = getSharedPreferences("sp", MODE_PRIVATE);
-        if(sp.getBoolean("firstTilesLaunch", true)){
+        if (sp.getBoolean("firstTilesLaunch", true)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.how_to_use);
             builder.setMessage(R.string.how_to_use_desc);
@@ -224,10 +224,10 @@ public class TilesActivity extends BaseActivity {
                     final int index = i;
                     final MyItemLongClickListener listener = this;
                     builder.setPositiveButton(android.R.string.ok, (dialogInterface, i1) -> {
-                        if(categories.get(listener.number).tiles.size() > 1) {
+                        if (categories.get(listener.number).tiles.size() > 1) {
                             List<SerializableDashboardTile> tiles1 = categories.get(listener.number).tiles;
                             tiles1.remove(index);
-                        } else if(Utils.belowOreo()) categories.remove(listener.number);
+                        } else if (Utils.belowOreo()) categories.remove(listener.number);
                         saveTiles();
                         setupUI();
                     });
@@ -245,34 +245,35 @@ public class TilesActivity extends BaseActivity {
                     tilesItemY = touchY;
 
                     SerializableDashboardTile originalTile = categories.get(this.number).tiles.get(i);
-                    if(!originalTile.modified && checkModifications()) return;
+                    if (!originalTile.modified && checkModifications()) return;
 
                     View addTileDialog = addTileDialog(false, this.number, i, tilesItemX, tilesItemY, 0);
 
                     ((TextView) addTileDialog.findViewById(R.id.title)).setText(originalTile.title);
-                    if(categories.get(this.number) != null)
+                    if (categories.get(this.number) != null)
                         ((TextView) addTileDialog.findViewById(R.id.category)).setText(categories.get(this.number).getTitle());
-                    if(Utils.notEmpty(originalTile.summary))
+                    if (Utils.notEmpty(originalTile.summary))
                         ((TextView) addTileDialog.findViewById(R.id.description)).setText(originalTile.summary);
-                    if(originalTile.intent != null) {
-                        if(Utils.belowNougat() || originalTile.intent.mPackage != null) {
+                    if (originalTile.intent != null) {
+                        if (Utils.belowNougat() || originalTile.intent.mPackage != null) {
                             ((TextView) addTileDialog.findViewById(R.id.packageToLaunch)).setText(originalTile.intent.mPackage);
                         } else {
                             ((TextView) addTileDialog.findViewById(R.id.packageToLaunch)).setText(originalTile.intent.mComponentClass);
                         }
                     }
-                    if(originalTile.fragment != null)
+                    if (originalTile.fragment != null)
                         ((TextView) addTileDialog.findViewById(R.id.fragmentToLaunch)).setText(originalTile.fragment.replace("com.android.settings.", ""));
                     if (Utils.notEmpty(originalTile.iconPath)) {
                         ((ImageView) addTileDialog.findViewById(R.id.iconImage)).setImageDrawable(Drawable.createFromPath(originalTile.iconPath));
                         ((TextView) addTileDialog.findViewById(R.id.iconImageText)).setText("");
-                    }
-                    else if (originalTile.iconRes != 0x0){
+                    } else if (originalTile.iconRes != 0x0) {
                         try {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) ((ImageView) addTileDialog.findViewById(R.id.iconImage)).setImageDrawable(getPackageManager().getResourcesForApplication("com.android.settings").getDrawable(originalTile.iconRes, null));
-                            else ((ImageView) addTileDialog.findViewById(R.id.iconImage)).setImageDrawable(getPackageManager().getResourcesForApplication("com.android.settings").getDrawable(originalTile.iconRes));
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1)
+                                ((ImageView) addTileDialog.findViewById(R.id.iconImage)).setImageDrawable(getPackageManager().getResourcesForApplication("com.android.settings").getDrawable(originalTile.iconRes, null));
+                            else
+                                ((ImageView) addTileDialog.findViewById(R.id.iconImage)).setImageDrawable(getPackageManager().getResourcesForApplication("com.android.settings").getDrawable(originalTile.iconRes));
                             ((TextView) addTileDialog.findViewById(R.id.iconImageText)).setText("");
-                        } catch (AndroidException e){
+                        } catch (AndroidException e) {
                             e.printStackTrace();
                         }
                     } else if (originalTile.icon != null && Utils.aboveNougat()) {
@@ -298,7 +299,7 @@ public class TilesActivity extends BaseActivity {
         fabAdd.setBackgroundTintList(ColorStateList.valueOf(typedValue.data));
         fabAdd.setOnClickListener(v -> {
             // Show add tile dialog on FAB click
-            if(checkModifications()) return;
+            if (checkModifications()) return;
 
             final ScrollView modifyTile = findViewById(R.id.modifyTileScrollView);
             assert modifyTile != null;
@@ -308,19 +309,19 @@ public class TilesActivity extends BaseActivity {
 
             fabPressed = true;
 
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 final Point fabPos = new Point(
-                        ((int)fabAdd.getX()),
-                        ((int)fabAdd.getY())
+                        ((int) fabAdd.getX()),
+                        ((int) fabAdd.getY())
                 );
 
-                tilesItemX = (int)(fabAdd.getX() + fabAdd.getMeasuredWidth()/2);
-                tilesItemY = (int)(fabAdd.getY() + fabAdd.getMeasuredHeight()/2);
+                tilesItemX = (int) (fabAdd.getX() + fabAdd.getMeasuredWidth() / 2);
+                tilesItemY = (int) (fabAdd.getY() + fabAdd.getMeasuredHeight() / 2);
 
                 // Animate FAB to center of screen
                 fabAdd.animate()
-                        .x((modifyTile.getLeft() + modifyTile.getRight())/2 - fabAdd.getMeasuredWidth()/2)
-                        .y((modifyTile.getTop() + modifyTile.getBottom())/2 - fabAdd.getMeasuredHeight()/2)
+                        .x((modifyTile.getLeft() + modifyTile.getRight()) / 2 - fabAdd.getMeasuredWidth() / 2)
+                        .y((modifyTile.getTop() + modifyTile.getBottom()) / 2 - fabAdd.getMeasuredHeight() / 2)
                         .setDuration(500)
                         .withEndAction(() -> {
                             // On finish move FAB back to original position and show add tile dialog
@@ -331,19 +332,19 @@ public class TilesActivity extends BaseActivity {
                                     true,
                                     0,
                                     0,
-                                    (modifyTile.getLeft() + modifyTile.getRight())/2,
-                                    (modifyTile.getLeft() + modifyTile.getRight())/2 + toolbar.getMeasuredHeight(),
+                                    (modifyTile.getLeft() + modifyTile.getRight()) / 2,
+                                    (modifyTile.getLeft() + modifyTile.getRight()) / 2 + toolbar.getMeasuredHeight(),
                                     fabAdd.getMeasuredWidth()
                             );
                         });
-            }else{
+            } else {
                 // If animate is not supported show addTileDialog directly
                 addTileDialog(
                         true,
                         0,
                         0,
-                        (modifyTile.getLeft() + modifyTile.getRight())/2,
-                        (modifyTile.getLeft() + modifyTile.getRight())/2 + toolbar.getMeasuredHeight(),
+                        (modifyTile.getLeft() + modifyTile.getRight()) / 2,
+                        (modifyTile.getLeft() + modifyTile.getRight()) / 2 + toolbar.getMeasuredHeight(),
                         0
                 );
             }
@@ -352,15 +353,16 @@ public class TilesActivity extends BaseActivity {
 
     /**
      * Show dialog to add or modify a tile
+     *
      * @param newTile true if new tile, false if editing existing tile
-     * @param cat category index if editing existing tile
-     * @param tile tile index if editing existing tile
-     * @param x x location of circular reveal
-     * @param y y location of circular reveal
-     * @param size starting size of circular reveal
+     * @param cat     category index if editing existing tile
+     * @param tile    tile index if editing existing tile
+     * @param x       x location of circular reveal
+     * @param y       y location of circular reveal
+     * @param size    starting size of circular reveal
      * @return view of dialog
      */
-    private View addTileDialog(final boolean newTile, final int cat, final int tile, int x, int y, int size){
+    private View addTileDialog(final boolean newTile, final int cat, final int tile, int x, int y, int size) {
         final FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
         assert fabAdd != null;
         fabAdd.setVisibility(View.INVISIBLE);
@@ -375,7 +377,7 @@ public class TilesActivity extends BaseActivity {
         assert view != null;
         view.removeAllViews();
         view.addView(getLayoutInflater().inflate(R.layout.dialog_modify_tile, null));
-        if(Utils.aboveNougat()){
+        if (Utils.aboveNougat()) {
             view.findViewById(R.id.textView4).setVisibility(View.GONE);
             view.findViewById(R.id.textView5).setVisibility(View.GONE);
             view.findViewById(R.id.fragmentToLaunch).setVisibility(View.GONE);
@@ -450,7 +452,7 @@ public class TilesActivity extends BaseActivity {
         Button packageButton = view.findViewById(R.id.packageToLaunchButton);
         packageButton.setOnClickListener(view12 -> {
             // On Apps button click, show list of installed apps
-            if(appsList.size() == 0) {
+            if (appsList.size() == 0) {
                 final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
                 mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
@@ -477,19 +479,20 @@ public class TilesActivity extends BaseActivity {
 
     /**
      * Edit an existing tile
-     * @param category index of category
-     * @param tile index of tile
-     * @param title title of the tile
-     * @param intentPkg package of the tile
-     * @param fragment fragment of the tile
-     * @param iconPath path to icon for the tile
+     *
+     * @param category     index of category
+     * @param tile         index of tile
+     * @param title        title of the tile
+     * @param intentPkg    package of the tile
+     * @param fragment     fragment of the tile
+     * @param iconPath     path to icon for the tile
      * @param categoryName category name for the tile
      * @return success
      */
     private boolean editTile(int category, int tile, String title, String intentPkg, String fragment, String iconPath, String categoryName, String description) {
         // Return if both fragment and package are entered or category or title is empty
-        if(!fragment.equals("") && !intentPkg.equals("")) return false;
-        if(categoryName.equals("") || title.equals("")) return false;
+        if (!fragment.equals("") && !intentPkg.equals("")) return false;
+        if (categoryName.equals("") || title.equals("")) return false;
 
         // Get the original tile
         SerializableDashboardCategory originalCategory = categories.get(category);
@@ -499,23 +502,23 @@ public class TilesActivity extends BaseActivity {
         originalTile.title = title;
         originalTile.summary = description;
         if (Utils.notEmpty(intentPkg) && !(originalTile.intent != null && ((originalTile.intent.mPackage != null && originalTile.intent.mPackage.equals(intentPkg)) || (originalTile.intent.mComponentClass != null && originalTile.intent.mComponentClass.equals(intentPkg))))) {
-            if(intentPkg.toLowerCase().equals(intentPkg)) {
+            if (intentPkg.toLowerCase().equals(intentPkg)) {
                 Intent launchIntent = getPackageManager().getLaunchIntentForPackage(intentPkg);
                 originalTile.intent = new SerializableIntent(launchIntent);
             } else {
                 Intent intent = new Intent();
                 String[] parts = intentPkg.split("\\.");
                 String pkg = "";
-                for(String part : parts){
-                    if(part.toLowerCase().equals(part)) {
+                for (String part : parts) {
+                    if (part.toLowerCase().equals(part)) {
                         pkg += part + ".";
-                    }else{
+                    } else {
                         break;
                     }
                 }
-                pkg = pkg.substring(0, pkg.length()-1);
+                pkg = pkg.substring(0, pkg.length() - 1);
                 intent.setComponent(new ComponentName(pkg, intentPkg));
-                if(intentPkg.startsWith("com.android.settings")){
+                if (intentPkg.startsWith("com.android.settings")) {
                     intent.putExtra("com.android.settings.FRAGMENT_CLASS", intentPkg);
                 }
                 originalTile.intent = new SerializableIntent(intent);
@@ -524,7 +527,7 @@ public class TilesActivity extends BaseActivity {
             originalTile.fragmentArguments = null;
         } else if (Utils.notEmpty(fragment) && !(originalTile.fragment != null && originalTile.fragment.equals(fragment))) {
             originalTile.intent = null;
-            if(fragment.startsWith("com.")) originalTile.fragment = fragment;
+            if (fragment.startsWith("com.")) originalTile.fragment = fragment;
             else originalTile.fragment = "com.android.settings." + fragment;
             originalTile.fragmentArguments = null;
         }
@@ -546,9 +549,9 @@ public class TilesActivity extends BaseActivity {
             for (SerializableDashboardCategory cat : categories) {
                 if (cat.getTitle().equals(categoryName)) {
                     cat.tiles.add(originalTile);
-                    if(Utils.aboveOreo()){
+                    if (Utils.aboveOreo()) {
                         originalTile.category = null;
-                        if(originalTile.metaData != null && originalTile.metaData.map.containsKey("com.android.settings.category")) {
+                        if (originalTile.metaData != null && originalTile.metaData.map.containsKey("com.android.settings.category")) {
                             originalTile.metaData.map.remove("com.android.settings.category");
                         }
                     }
@@ -563,8 +566,8 @@ public class TilesActivity extends BaseActivity {
                 cat.tiles.add(originalTile);
                 categories.add(cat);
             }
-			if (originalCategory.tiles.size() > 1) originalCategory.tiles.remove(tile);
-			else if(Utils.belowOreo()) categories.remove(category);
+            if (originalCategory.tiles.size() > 1) originalCategory.tiles.remove(tile);
+            else if (Utils.belowOreo()) categories.remove(category);
         }
 
         // Save changes to storage and refresh UI
@@ -575,24 +578,26 @@ public class TilesActivity extends BaseActivity {
 
     /**
      * Add a new tile to a category
-     * @param title title of the new tile
+     *
+     * @param title     title of the new tile
      * @param intentPkg package of the new tile
-     * @param fragment fragment of the new tile
-     * @param iconPath path to icon for the new tile
-     * @param category category name for the new tile
+     * @param fragment  fragment of the new tile
+     * @param iconPath  path to icon for the new tile
+     * @param category  category name for the new tile
      * @return success
      */
-    private boolean addTile(String title, String intentPkg, String fragment, String iconPath, String category, String description){
+    private boolean addTile(String title, String intentPkg, String fragment, String iconPath, String category, String description) {
         // Return if both fragment and package are entered or category or title is empty
-        if(!fragment.equals("") && !intentPkg.equals("")) return false;
-        if(category.equals("") || title.equals("")) return false;
+        if (!fragment.equals("") && !intentPkg.equals("")) return false;
+        if (category.equals("") || title.equals("")) return false;
 
         // Create new tile and set properties
         SerializableDashboardTile tile = new SerializableDashboardTile();
         tile.title = title;
-        if(!intentPkg.equals("")) tile.intent = new SerializableIntent(getPackageManager().getLaunchIntentForPackage(intentPkg));
-        if(!fragment.equals("")){
-            if(fragment.startsWith("com.")) tile.fragment = fragment;
+        if (!intentPkg.equals(""))
+            tile.intent = new SerializableIntent(getPackageManager().getLaunchIntentForPackage(intentPkg));
+        if (!fragment.equals("")) {
+            if (fragment.startsWith("com.")) tile.fragment = fragment;
             else tile.fragment = "com.android.settings." + fragment;
         }
         tile.iconPath = iconPath;
@@ -629,6 +634,7 @@ public class TilesActivity extends BaseActivity {
 
     /**
      * Options menu inflater
+     *
      * @param menu Menu to be inflated
      * @return success
      */
@@ -640,6 +646,7 @@ public class TilesActivity extends BaseActivity {
 
     /**
      * On option in ActionBar selected
+     *
      * @param item Item selected
      * @return success
      */
@@ -647,49 +654,50 @@ public class TilesActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-		switch (id) {
-			case (R.id.settings):
+        switch (id) {
+            case (R.id.settings):
                 // Kill and restart settings
-				ActivityManager am = (ActivityManager) activity.getSystemService(ACTIVITY_SERVICE);
-                if(am != null)
-				    am.killBackgroundProcesses("com.android.settings");
+                ActivityManager am = (ActivityManager) activity.getSystemService(ACTIVITY_SERVICE);
+                if (am != null)
+                    am.killBackgroundProcesses("com.android.settings");
 
-				PackageManager pm = activity.getPackageManager();
-				Intent i = pm.getLaunchIntentForPackage("com.android.settings");
-				if(i != null) {
+                PackageManager pm = activity.getPackageManager();
+                Intent i = pm.getLaunchIntentForPackage("com.android.settings");
+                if (i != null) {
                     i.addCategory(Intent.CATEGORY_LAUNCHER);
                     activity.startActivity(i);
                 }
-				return true;
-			case (R.id.reset):
+                return true;
+            case (R.id.reset):
                 // Delete all modifications
-				AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-				builder.setTitle(R.string.reset);
-				builder.setMessage(R.string.reset_text);
-				builder.setPositiveButton(android.R.string.ok, (dialogInterface, i12) -> {
-DashboardManager.reset();
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setTitle(R.string.reset);
+                builder.setMessage(R.string.reset_text);
+                builder.setPositiveButton(android.R.string.ok, (dialogInterface, i12) -> {
+                    DashboardManager.reset();
                     PreferencesManager.getInstance().putAndApply(PreferenceConstants.KEY_MODIFICATIONS, 0);
                     getTiles();
                     setupUI();
                 });
-				builder.setNegativeButton(android.R.string.cancel, (dialogInterface, i1) -> {
+                builder.setNegativeButton(android.R.string.cancel, (dialogInterface, i1) -> {
                 });
-				builder.create().show();
+                builder.create().show();
                 return true;
             case (android.R.id.home):
                 // call onBackPressed() on ActionBar back button pressed
                 onBackPressed();
                 return true;
-		}
+        }
 
         return super.onOptionsItemSelected(item);
     }
 
     /**
      * On activity result save icon from image to storage
+     *
      * @param requestCode request code set by the app
-     * @param resultCode result code
-     * @param data data received by the app
+     * @param resultCode  result code
+     * @param data        data received by the app
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -700,12 +708,12 @@ DashboardManager.reset();
                 int iconSize = am.getLauncherLargeIconSize();
                 Bitmap image = Bitmap.createScaledBitmap(Utils.getBitmapFromUri(uri, activity), iconSize, iconSize, false);
                 int index = 1;
-                File destination = new File(IOManager.FILEPATH, "image"+index+".png");
-                while (destination.exists()){
+                File destination = new File(IOManager.FILEPATH, "image" + index + ".png");
+                while (destination.exists()) {
                     index++;
-                    destination = new File(IOManager.FILEPATH, "image"+index+".png");
+                    destination = new File(IOManager.FILEPATH, "image" + index + ".png");
                 }
-                if(destination.createNewFile()){
+                if (destination.createNewFile()) {
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
                     image.compress(Bitmap.CompressFormat.PNG, 0, bos);
                     byte[] bitmapdata = bos.toByteArray();
@@ -715,16 +723,16 @@ DashboardManager.reset();
                     fos.flush();
                     fos.close();
 
-                    if(destination.canRead() || destination.setReadable(true, true)) {
+                    if (destination.canRead() || destination.setReadable(true, true)) {
                         iconPath = destination.getPath();
                         assert iconImageView != null;
                         iconImageView.setImageDrawable(Drawable.createFromPath(iconPath));
                         iconTextView.setText("");
-                    }else{
+                    } else {
                         Toast.makeText(activity, "Something went wrong", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }catch (IOException | NullPointerException e) {
+            } catch (IOException | NullPointerException e) {
                 Toast.makeText(activity, "Something went wrong", Toast.LENGTH_SHORT).show();
 
                 e.printStackTrace();
@@ -735,6 +743,7 @@ DashboardManager.reset();
 
     /**
      * Set ListView to full height
+     *
      * @param listView listView to set height of
      */
     private void setListViewHeight(ListView listView) {
@@ -758,9 +767,10 @@ DashboardManager.reset();
 
     /**
      * Choose icon from local storage or from app icon
+     *
      * @param v Clicked view
      **/
-    private void showImageDialog(View v){
+    private void showImageDialog(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         ListView listView = new ListView(this);
         String[] data = new String[]{
@@ -775,7 +785,7 @@ DashboardManager.reset();
         listView.setOnItemClickListener((parent, view, position, id) -> {
             switch (position) {
                 case 0:
-                    if(appsList.size() == 0) {
+                    if (appsList.size() == 0) {
                         final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
                         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
@@ -811,8 +821,8 @@ DashboardManager.reset();
                 case 1:
                     try {
                         List<String> fileNames = new ArrayList<>();
-                        for(String fileName : getAssets().list("")){
-                            if(fileName.endsWith("png")) fileNames.add(fileName);
+                        for (String fileName : getAssets().list("")) {
+                            if (fileName.endsWith("png")) fileNames.add(fileName);
                         }
 
                         GalleryView galleryView = new GalleryView(TilesActivity.this);
@@ -837,7 +847,7 @@ DashboardManager.reset();
                             iconTextView.setText("");
                             iconListDialog.dismiss();
                         });
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         Toast.makeText(TilesActivity.this, "Error", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
@@ -852,14 +862,14 @@ DashboardManager.reset();
     /**
      * Fill listOfSettingsFragments with array of settings fragments found from com.android.settings' AndroidManifest.xml
      */
-    private void addItemsToListOfSettingsFragments(){
+    private void addItemsToListOfSettingsFragments() {
         PackageManager pManager = activity.getPackageManager();
         try {
             PackageInfo list = pManager.getPackageInfo("com.android.settings", PackageManager.GET_ACTIVITIES | PackageManager.GET_META_DATA);
-            for(ActivityInfo activity : list.activities) {
+            for (ActivityInfo activity : list.activities) {
                 if (activity.metaData != null) {
                     String fragmentClass = (String) activity.metaData.get("com.android.settings.FRAGMENT_CLASS");
-                    if(fragmentClass != null)
+                    if (fragmentClass != null)
                         listOfSettingsFragments.add(fragmentClass.replace("com.android.settings.", ""));
                 }
             }
@@ -879,7 +889,7 @@ DashboardManager.reset();
         assert modifyTile != null;
 
         // If add tile dialog is visible hide it and discard changes
-        if(modifyTile.getVisibility() == View.VISIBLE){
+        if (modifyTile.getVisibility() == View.VISIBLE) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.discard);
             builder.setNegativeButton(android.R.string.no, null);
@@ -887,10 +897,10 @@ DashboardManager.reset();
                 final View fab = findViewById(R.id.fabAdd);
                 assert fab != null;
 
-                if(Utils.aboveLollipop()){
+                if (Utils.aboveLollipop()) {
                     // Show reversed circular reveal if supported
                     int endSize = 0;
-                    if(fabPressed){
+                    if (fabPressed) {
                         endSize = fab.getMeasuredHeight();
                         fabPressed = false;
                     }
@@ -908,21 +918,24 @@ DashboardManager.reset();
                         public void onAnimationStart(Animator animation) {
 
                         }
+
                         @Override
                         public void onAnimationEnd(Animator animation) {
                             modifyTile.setVisibility(View.INVISIBLE);
                             fab.setVisibility(View.VISIBLE);
                         }
+
                         @Override
                         public void onAnimationCancel(Animator animation) {
 
                         }
+
                         @Override
                         public void onAnimationRepeat(Animator animation) {
 
                         }
                     });
-                }else{
+                } else {
                     modifyTile.setVisibility(View.INVISIBLE);
                     fab.setVisibility(View.VISIBLE);
                 }
@@ -930,7 +943,7 @@ DashboardManager.reset();
             builder.show();
         }
         // Else close activity
-        else{
+        else {
             super.onBackPressed();
             overridePendingTransition(R.anim.hold, R.anim.right_slide_out);
         }

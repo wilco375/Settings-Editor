@@ -42,18 +42,21 @@ public class SerializableDashboardTileAdapter extends ArrayAdapter<SerializableD
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listitem_tile, parent, false);
         }
-        if(dashboardTile == null) return convertView;
+        if (dashboardTile == null) return convertView;
 
         ImageView icon = convertView.findViewById(R.id.drag_handle);
         TextView title = convertView.findViewById(R.id.listViewTitle);
 
-        if (Utils.notEmpty(dashboardTile.iconPath)) icon.setImageDrawable(Drawable.createFromPath(dashboardTile.iconPath));
-        else if (dashboardTile.iconRes != 0x0){
+        if (Utils.notEmpty(dashboardTile.iconPath))
+            icon.setImageDrawable(Drawable.createFromPath(dashboardTile.iconPath));
+        else if (dashboardTile.iconRes != 0x0) {
             try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) icon.setImageDrawable(settingsRes.getDrawable(dashboardTile.iconRes, null));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1)
+                    icon.setImageDrawable(settingsRes.getDrawable(dashboardTile.iconRes, null));
                 else icon.setImageDrawable(settingsRes.getDrawable(dashboardTile.iconRes));
-            } catch (Resources.NotFoundException e) { }
-        } else if (dashboardTile.icon != null){
+            } catch (Resources.NotFoundException e) {
+            }
+        } else if (dashboardTile.icon != null) {
             icon.setImageBitmap(dashboardTile.icon.toBitmap(getContext()));
         }
         title.setText(dashboardTile.title);

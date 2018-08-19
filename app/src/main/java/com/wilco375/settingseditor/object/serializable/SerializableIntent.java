@@ -29,29 +29,31 @@ public class SerializableIntent implements Serializable {
     /**
      * Constructor for Jackson
      */
-    public SerializableIntent(){ }
+    public SerializableIntent() {
+    }
 
     /**
      * Create a serializable intent from a {@link Intent}
+     *
      * @param i intent to convert
      */
-    public SerializableIntent(Intent i){
-        if(i == null) return;
+    public SerializableIntent(Intent i) {
+        if (i == null) return;
         mAction = i.getAction();
-        if(i.getData() != null) mData = i.getData().toString();
+        if (i.getData() != null) mData = i.getData().toString();
         mType = i.getType();
         mPackage = i.getPackage();
-        if(i.getComponent() != null){
+        if (i.getComponent() != null) {
             mComponentPkg = i.getComponent().getPackageName();
             mComponentClass = i.getComponent().getClassName();
         }
         mFlags = i.getFlags();
-        if(i.getCategories() != null) {
+        if (i.getCategories() != null) {
             mCategories = new HashSet<>();
             mCategories.addAll(i.getCategories());
         }
         mExtras = new SerializableBundle(i.getExtras());
-        if(i.getSourceBounds() != null) {
+        if (i.getSourceBounds() != null) {
             Rect mSourceBounds = i.getSourceBounds();
             mSourceBoundsLeft = mSourceBounds.left;
             mSourceBoundsTop = mSourceBounds.top;
@@ -62,27 +64,29 @@ public class SerializableIntent implements Serializable {
 
     /**
      * Convert the serializable intent back to a {@link Intent}
+     *
      * @return the converted intent
      */
-    public Intent toIntent(){
+    public Intent toIntent() {
         Intent i = new Intent();
         i.setAction(mAction);
-        if(mData != null) i.setData(Uri.parse(mData));
+        if (mData != null) i.setData(Uri.parse(mData));
         i.setType(mType);
         i.setPackage(mPackage);
-        if(mComponentPkg != null) i.setComponent(new ComponentName(mComponentPkg, mComponentClass));
+        if (mComponentPkg != null)
+            i.setComponent(new ComponentName(mComponentPkg, mComponentClass));
         i.setFlags(mFlags);
-        if(mCategories != null) {
+        if (mCategories != null) {
             for (String category : mCategories) {
                 i.addCategory(category);
             }
         }
-        if(mExtras != null && mExtras.toBundle() != null) i.putExtras(mExtras.toBundle());
+        if (mExtras != null && mExtras.toBundle() != null) i.putExtras(mExtras.toBundle());
         i.setSourceBounds(new Rect(mSourceBoundsLeft, mSourceBoundsTop, mSourceBoundsRight, mSourceBoundsBottom));
         return i;
     }
 
-    public static Intent getSettingsIntent(){
+    public static Intent getSettingsIntent() {
         SerializableIntent intent = new SerializableIntent();
         intent.mPackage = "com.android.settings";
         return intent.toIntent();

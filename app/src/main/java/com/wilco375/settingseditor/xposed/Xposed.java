@@ -1,11 +1,8 @@
 package com.wilco375.settingseditor.xposed;
 
-import android.os.Build;
-
 import com.wilco375.settingseditor.BuildConfig;
 import com.wilco375.settingseditor.general.PreferenceConstants;
 import com.wilco375.settingseditor.general.PreferencesManager;
-import com.wilco375.settingseditor.general.Utils;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -24,7 +21,7 @@ public class Xposed implements IXposedHookLoadPackage {
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
         // Set Xposed active to true
-        if(lpparam.packageName.equals(BuildConfig.APPLICATION_ID)){
+        if (lpparam.packageName.equals(BuildConfig.APPLICATION_ID)) {
             XposedHelpers.findAndHookMethod("com.wilco375.settingseditor.xposed.XposedChecker", lpparam.classLoader, "active", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {

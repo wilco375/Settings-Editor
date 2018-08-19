@@ -30,7 +30,7 @@ public class TitleDescAdapter extends ArrayAdapter<MainListItem> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listitem_title_desc, parent, false);
         }
-        if(item == null) return convertView;
+        if (item == null) return convertView;
 
         ((TextView) convertView.findViewById(R.id.title)).setText(item.title);
         ((TextView) convertView.findViewById(R.id.desc)).setText(item.desc);

@@ -23,11 +23,14 @@ import java.util.List;
  * Static utility methods
  */
 public class Utils {
-    /** Google Play Store url of the Pro version of the app */
+    /**
+     * Google Play Store url of the Pro version of the app
+     */
     public static final String PRO_URL = "https://play.google.com/store/apps/details?id=com.wilco375.settingseditorpro";
 
     /**
      * Show the file chooser
+     *
      * @param a Current activity
      */
     public static void showFileChooser(Activity a) {
@@ -46,8 +49,9 @@ public class Utils {
 
     /**
      * Get bitmap from Uri
+     *
      * @param uri Uri to get bitmap from
-     * @param c Context of current activity
+     * @param c   Context of current activity
      * @return Bitmap bitmap from Uri
      */
     public static Bitmap getBitmapFromUri(Uri uri, Context c) throws IOException, NullPointerException {
@@ -57,21 +61,23 @@ public class Utils {
         Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
         parcelFileDescriptor.close();
 
-        if(image == null) throw new NullPointerException();
+        if (image == null) throw new NullPointerException();
         return image;
     }
 
     /**
      * Check if a String is not null and not empty
+     *
      * @param str String to check
      * @return String not null or empty
      */
-    public static boolean notEmpty(String str){
+    public static boolean notEmpty(String str) {
         return str != null && !str.equals("");
     }
 
     /**
      * Remove duplicates from List<String>
+     *
      * @param originalList List<String> to remove duplicates from
      * @return New list with duplicates removed
      */
@@ -79,7 +85,7 @@ public class Utils {
         List<String> list = new ArrayList<>();
         list.addAll(originalList);
         ArrayList<String> ar = new ArrayList<>();
-        while (list.size()>0){
+        while (list.size() > 0) {
             ar.add(list.get(0));
             list.removeAll(Collections.singleton(list.get(0)));
         }
@@ -89,7 +95,8 @@ public class Utils {
 
     /**
      * Convert display pixels to pixels
-     * @param dp display pixels to convert to pixels
+     *
+     * @param dp      display pixels to convert to pixels
      * @param context context
      * @return converted pixels
      */
@@ -101,49 +108,49 @@ public class Utils {
     /**
      * @return true if SDK version is below Oreo (SDK < 26)
      */
-    public static boolean belowOreo(){
+    public static boolean belowOreo() {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.O;
     }
 
     /**
      * @return true if SDK version is below Nougat (SDK < 24)
      */
-    public static boolean belowNougat(){
+    public static boolean belowNougat() {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.N;
     }
 
     /**
      * @return true if SDK version is at least Oreo (SDK >= 26)
      */
-    public static boolean aboveOreo(){
+    public static boolean aboveOreo() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
     }
 
     /**
      * @return true if SDK version is at least Nougat (SDK >= 24)
      */
-    public static boolean aboveNougat(){
+    public static boolean aboveNougat() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
     }
 
     /**
      * @return true if SDK version is at least Marshmallow (SDK >= 23)
      */
-    public static boolean aboveMarshmallow(){
+    public static boolean aboveMarshmallow() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
 
     /**
      * @return true if SDK version is at least Marshmallow (SDK >= 23)
      */
-    public static boolean aboveLollipop(){
+    public static boolean aboveLollipop() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
     /**
      * @return true if SDK version is at least Jelly Bean MR1 (SDK >= 17)
      */
-    public static boolean aboveJellybean(){
+    public static boolean aboveJellybean() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
     }
 }

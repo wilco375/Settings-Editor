@@ -2,8 +2,8 @@ package com.wilco375.settingseditor.layout;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.util.AttributeSet;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
+import android.util.AttributeSet;
 
 /**
  * Custom View extending the AutoCompleteTextView that instantly shows the autocomplete items
@@ -24,6 +24,7 @@ public class InstantAutoComplete extends AppCompatAutoCompleteTextView {
 
     /**
      * Make sure autocomplete dropdown always shows
+     *
      * @return true
      */
     @Override

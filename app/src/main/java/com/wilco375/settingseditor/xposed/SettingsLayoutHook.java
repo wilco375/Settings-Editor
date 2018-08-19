@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +43,7 @@ public class SettingsLayoutHook {
 
     /**
      * Hook all the necessary methods and constructors on Settings package load
+     *
      * @param lpparam load package parameter
      */
     public static void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) {
@@ -65,7 +65,7 @@ public class SettingsLayoutHook {
             }
         });
 
-        if(Utils.belowNougat()) {
+        if (Utils.belowNougat()) {
             // Marshmallow and below
 
             // DashboardSummary rebuildUI Hook
@@ -181,9 +181,9 @@ public class SettingsLayoutHook {
                 findAndHookConstructor(findClass("com.android.settings.dashboard.DashboardAdapter.DashboardItemHolder", lpparam.classLoader), View.class, dashboardItemHolder);
             } catch (Throwable t) {
                 // Sony
-                try{
+                try {
                     findAndHookConstructor(findClass("com.android.settings.dashboard.DashboardAdapter.DashboardItemHolder", lpparam.classLoader), View.class, boolean.class, dashboardItemHolder);
-                }catch (Throwable t1){
+                } catch (Throwable t1) {
                     // HTC
                     findAndHookConstructor(findClass("com.android.settings.dashboard.DashboardAdapter.DashboardItemHolder", lpparam.classLoader), "com.android.settings.dashboard.DashboardAdapter", View.class, dashboardItemHolder);
                 }
@@ -192,9 +192,10 @@ public class SettingsLayoutHook {
             try {
                 findAndHookMethod(findClass("com.android.settings.dashboard.DashboardAdapter", lpparam.classLoader), "onBindSuggestionHeader", "com.android.settings.dashboard.DashboardAdapter.DashboardItemHolder", "com.android.settings.dashboard.DashboardData.SuggestionHeaderData", hideStatusText);
             } catch (Throwable t) {
-                try{
+                try {
                     findAndHookMethod(findClass("com.android.settings.dashboard.DashboardAdapter", lpparam.classLoader), "onBindSuggestionHeader", "com.android.settings.dashboard.DashboardAdapter.DashboardItemHolder", hideStatusText);
-                } catch (Throwable t1) { }
+                } catch (Throwable t1) {
+                }
             }
             findAndHookMethod(findClass("com.android.settings.dashboard.DashboardAdapter", lpparam.classLoader), "onBindTile", "com.android.settings.dashboard.DashboardAdapter.DashboardItemHolder", "com.android.settingslib.drawer.Tile", hideStatusText);
 
@@ -206,7 +207,7 @@ public class SettingsLayoutHook {
                 try {
                     // Oreo
                     findAndHookMethod(DashboardAdapter, "setCategoriesAndSuggestions", "com.android.settingslib.drawer.DashboardCategory", List.class, setSuggestions);
-                }catch (Throwable t1){
+                } catch (Throwable t1) {
                     Logger.logDbg("setCategoriesAndSuggestions not found");
                 }
             }
@@ -227,8 +228,8 @@ public class SettingsLayoutHook {
         @Override
         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
             PreferencesManager prefs = PreferencesManager.getInstance();
-            if(prefs.getBoolean(PreferenceConstants.KEY_BOOL_HIDE_SUGGESTIONS, false)) {
-                if(param.args.length > 1) {
+            if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_HIDE_SUGGESTIONS, false)) {
+                if (param.args.length > 1) {
                     param.args[1] = new ArrayList<>();
                 } else {
                     param.args[0] = new ArrayList<>();
@@ -248,7 +249,7 @@ public class SettingsLayoutHook {
             PreferencesManager prefs = PreferencesManager.getInstance();
 
             ImageView imageView = (ImageView) getObjectField(param.thisObject, "icon");
-            if(imageView != null) {
+            if (imageView != null) {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                 imageView.setAdjustViewBounds(true);
             }
@@ -285,7 +286,7 @@ public class SettingsLayoutHook {
 
             PreferencesManager prefs = PreferencesManager.getInstance();
 
-            if(prefs.getBoolean(PreferenceConstants.KEY_BOOL_HIDE_STATUS, false)){
+            if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_HIDE_STATUS, false)) {
                 Logger.logDbg("Hiding status text");
                 Object holder = param.args[0];
                 View statusText = (View) getObjectField(holder, "summary");
@@ -303,16 +304,16 @@ public class SettingsLayoutHook {
             Logger.logDbg("Updating tileView in SettingsLayoutHook");
 
             PreferencesManager prefs = PreferencesManager.getInstance();
-            
-            if(param.args[3] instanceof ImageView) {
+
+            if (param.args[3] instanceof ImageView) {
                 // Remove icon background
                 removeIconBackground(prefs, param);
-                
+
                 // Set icon filter color
                 setIconFilterColor(prefs, param);
             }
 
-            if(param.args[5] != null && param.args[5] instanceof TextView) {
+            if (param.args[5] != null && param.args[5] instanceof TextView) {
                 // Hide status text
                 hideStatusText(prefs, param);
             }
@@ -323,23 +324,24 @@ public class SettingsLayoutHook {
 
     /**
      * Hide status text
+     *
      * @param prefs preferences
      * @param param method hook parameter
      */
-    private static void hideStatusText(PreferencesManager prefs, XC_MethodHook.MethodHookParam param){
-        if(prefs.getBoolean(PreferenceConstants.KEY_BOOL_HIDE_STATUS, false)){
+    private static void hideStatusText(PreferencesManager prefs, XC_MethodHook.MethodHookParam param) {
+        if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_HIDE_STATUS, false)) {
             Logger.logDbg("Hiding status text in updateTileView");
 
             try {
                 TextView status;
-                if(Utils.belowNougat()){
+                if (Utils.belowNougat()) {
                     status = (TextView) param.args[5];
                 } else {
                     status = (TextView) getObjectField(param.thisObject, "summary");
                 }
-                if(status != null) {
+                if (status != null) {
                     status.setVisibility(View.GONE);
-                    Logger.logDbg("Status text view with text '"+status.getText().toString()+"' set to invisible");
+                    Logger.logDbg("Status text view with text '" + status.getText().toString() + "' set to invisible");
                 }
             } catch (NoSuchFieldError e) {
                 Logger.logDbg("Status text view not found");
@@ -350,10 +352,11 @@ public class SettingsLayoutHook {
 
     /**
      * Show icons only on Settings dashboard
+     *
      * @param prefs preferences
      * @param param method hook parameter
      */
-    private static void showIconsOnly(PreferencesManager prefs, XC_MethodHook.MethodHookParam param){
+    private static void showIconsOnly(PreferencesManager prefs, XC_MethodHook.MethodHookParam param) {
         if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_ICONS_ONLY, false)) {
             Logger.logDbg("Showing icons only");
 
@@ -365,7 +368,7 @@ public class SettingsLayoutHook {
                     // Linear layout parent
                     try {
                         LinearLayout.LayoutParams iconLayoutParams = ((LinearLayout.LayoutParams) icon.getLayoutParams());
-                        if(iconLayoutParams == null)
+                        if (iconLayoutParams == null)
                             iconLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                         else
                             iconLayoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT;
@@ -386,7 +389,7 @@ public class SettingsLayoutHook {
                     // Relative layout parent
                     catch (ClassCastException e) {
                         RelativeLayout.LayoutParams iconLayoutParams = ((RelativeLayout.LayoutParams) icon.getLayoutParams());
-                        if(iconLayoutParams == null)
+                        if (iconLayoutParams == null)
                             iconLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                         else
                             iconLayoutParams.width = RelativeLayout.LayoutParams.MATCH_PARENT;
@@ -446,15 +449,16 @@ public class SettingsLayoutHook {
 
     /**
      * Remove icon background
+     *
      * @param prefs preferences
      * @param param method hook parameter
      */
-    private static void removeIconBackground(PreferencesManager prefs, XC_MethodHook.MethodHookParam param){
-        if(Utils.aboveJellybean() && prefs.getBoolean(PreferenceConstants.KEY_BOOL_REMOVE_BACKGROUND, false)){
+    private static void removeIconBackground(PreferencesManager prefs, XC_MethodHook.MethodHookParam param) {
+        if (Utils.aboveJellybean() && prefs.getBoolean(PreferenceConstants.KEY_BOOL_REMOVE_BACKGROUND, false)) {
             Logger.logDbg("Removing icon background");
 
             ImageView imageView;
-            if(Utils.belowNougat()){
+            if (Utils.belowNougat()) {
                 imageView = (ImageView) param.args[3];
             } else {
                 imageView = (ImageView) getObjectField(param.thisObject, "icon");
@@ -465,18 +469,19 @@ public class SettingsLayoutHook {
 
     /**
      * Set icon filter color
+     *
      * @param prefs preferences
      * @param param method hook parameter
      */
-    private static void setIconFilterColor(PreferencesManager prefs, XC_MethodHook.MethodHookParam param){
+    private static void setIconFilterColor(PreferencesManager prefs, XC_MethodHook.MethodHookParam param) {
         ImageView imageView;
-        if(Utils.belowNougat()){
+        if (Utils.belowNougat()) {
             imageView = (ImageView) param.args[3];
         } else {
             imageView = (ImageView) getObjectField(param.thisObject, "icon");
         }
 
-        if(imageView != null) {
+        if (imageView != null) {
             if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_FILTER_COLOR, false)) {
                 Logger.logDbg("Adding color filter to icon");
 
@@ -493,10 +498,11 @@ public class SettingsLayoutHook {
 
     /**
      * Change the default icon size on the Settings dashboard
+     *
      * @param prefs preferences
      * @param param method hook parameter
      */
-    private static void changeIconSize(PreferencesManager prefs, XC_MethodHook.MethodHookParam param){
+    private static void changeIconSize(PreferencesManager prefs, XC_MethodHook.MethodHookParam param) {
         if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_ICON_SIZE, false)) {
             Logger.logDbg("Changing icon size");
 
@@ -547,6 +553,7 @@ public class SettingsLayoutHook {
 
     /**
      * Change amount of columns on the Settings dashboard
+     *
      * @param prefs preferences
      * @param param method hook parameter
      */
@@ -560,15 +567,16 @@ public class SettingsLayoutHook {
 
     /**
      * Change the background color of the dashboard
+     *
      * @param prefs preferences
      * @param param method hook parameter
      */
-    private static void changeBackgroundColor(PreferencesManager prefs, XC_MethodHook.MethodHookParam param){
-        if(prefs.getBoolean(PreferenceConstants.KEY_BOOL_BACKGROUND, false)){
+    private static void changeBackgroundColor(PreferencesManager prefs, XC_MethodHook.MethodHookParam param) {
+        if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_BACKGROUND, false)) {
 
             Logger.logDbg("Changing background color");
 
-            if(Utils.belowNougat()) {
+            if (Utils.belowNougat()) {
                 try {
                     ViewGroup dashboardContainerView = (ViewGroup) getObjectField(param.thisObject, "mDashboard");
                     int bgColor = Color.parseColor(prefs.getString(PreferenceConstants.KEY_STRING_BACKGROUND, "#FFFFFF"));
@@ -580,9 +588,9 @@ public class SettingsLayoutHook {
                     XposedBridge.log("[Settings Editor] Error while changing background color: field not found");
                     e.printStackTrace();
                 }
-            }else{
+            } else {
                 View itemView = (View) param.args[0];
-                if(itemView != null){
+                if (itemView != null) {
                     int bgColor = Color.parseColor(prefs.getString(PreferenceConstants.KEY_STRING_BACKGROUND, "#FFFFFF"));
                     itemView.setBackgroundColor(bgColor);
                 }
@@ -592,24 +600,25 @@ public class SettingsLayoutHook {
 
     /**
      * Add {@link android.view.View.OnClickListener} to installed app icon to launch that app
+     *
      * @param prefs preferences
      * @param param method hook parameter
      */
-    private static void setInstalledAppIconListener(PreferencesManager prefs, final XC_MethodHook.MethodHookParam param){
-        if(prefs.getBoolean(PreferenceConstants.KEY_BOOL_INSTALLED_APP_ICON, false)) {
+    private static void setInstalledAppIconListener(PreferencesManager prefs, final XC_MethodHook.MethodHookParam param) {
+        if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_INSTALLED_APP_ICON, false)) {
             Logger.logDbg("Setting installed apps icon onClickListener");
 
             View appSnippet;
             try {
                 final Context context = (Context) callMethod(param.thisObject, "getContext");
                 appSnippet = (View) callMethod(getObjectField(param.thisObject, "mHeader"), "findViewById", context.getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
-            } catch (Throwable t){
+            } catch (Throwable t) {
                 View rootView = (View) getObjectField(param.thisObject, "mRootView");
                 appSnippet = rootView.findViewById(rootView.getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
             }
             final View finalAppSnippet = appSnippet;
             ImageView icon = appSnippet.findViewById(android.R.id.icon);
-            if(icon == null){
+            if (icon == null) {
                 // Oreo
                 View rootView = (View) getObjectField(getObjectField(param.thisObject, "mHeader"), "mRootView");
                 icon = rootView.findViewById(rootView.getResources().getIdentifier("entity_header_icon", "id", "com.android.settings"));
@@ -617,7 +626,7 @@ public class SettingsLayoutHook {
             icon.setOnClickListener(v -> {
                 PackageManager pm = finalAppSnippet.getContext().getPackageManager();
                 Intent i = pm.getLaunchIntentForPackage(((PackageInfo) param.args[0]).packageName);
-                if(i != null){
+                if (i != null) {
                     i.addCategory(Intent.CATEGORY_LAUNCHER);
                     finalAppSnippet.getContext().startActivity(i);
                 }
@@ -627,32 +636,35 @@ public class SettingsLayoutHook {
 
     /**
      * Show package name in the InstalledAppDetails Activity
+     *
      * @param prefs preferences
      * @param param method hook parameters
      */
-    private static void showPackageName(PreferencesManager prefs, XC_MethodHook.MethodHookParam param){
-        if(prefs.getBoolean(PreferenceConstants.KEY_BOOL_SHOW_PACKAGE, false)) {
+    private static void showPackageName(PreferencesManager prefs, XC_MethodHook.MethodHookParam param) {
+        if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_SHOW_PACKAGE, false)) {
             Logger.logDbg("Showing package name");
 
             View appSnippet;
             try {
                 final Context context = (Context) callMethod(param.thisObject, "getContext");
                 appSnippet = (View) callMethod(getObjectField(param.thisObject, "mHeader"), "findViewById", context.getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
-            } catch (Throwable t){
+            } catch (Throwable t) {
                 appSnippet = ((View) getObjectField(param.thisObject, "mRootView")).findViewById(((View) getObjectField(param.thisObject, "mRootView")).getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
             }
             TextView widgetText1 = appSnippet.findViewById(appSnippet.getResources().getIdentifier("widget_text1", "id", "com.android.settings"));
-            if (widgetText1 != null) widgetText1.setText(widgetText1.getText().toString()+" - "+((PackageInfo) param.args[0]).packageName);
+            if (widgetText1 != null)
+                widgetText1.setText(widgetText1.getText().toString() + " - " + ((PackageInfo) param.args[0]).packageName);
         }
     }
 
     /**
      * Change the text color
+     *
      * @param prefs preferences
      * @param param method hook parameters
      */
-    private static void changeTextColor(PreferencesManager prefs, XC_MethodHook.MethodHookParam param){
-        if(prefs.getBoolean(PreferenceConstants.KEY_BOOL_TEXT_COLOR, false)){
+    private static void changeTextColor(PreferencesManager prefs, XC_MethodHook.MethodHookParam param) {
+        if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_TEXT_COLOR, false)) {
             Logger.logDbg("Changing text color");
 
             int textColor = Color.parseColor(prefs.getString(PreferenceConstants.KEY_STRING_TEXT_COLOR, "#000000"));
@@ -675,7 +687,7 @@ public class SettingsLayoutHook {
                 e.printStackTrace();
             }
 
-            if(Utils.belowOreo()) {
+            if (Utils.belowOreo()) {
                 try {
                     ViewGroup dashboardContainerView = (ViewGroup) getObjectField(param.thisObject, "mDashboard");
                     Context context = (Context) callMethod(param.thisObject, "getContext");

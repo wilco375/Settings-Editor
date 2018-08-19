@@ -8,8 +8,9 @@ import android.support.annotation.NonNull;
 /**
  * Object that stores the title, package and icon of an app
  */
-public class AppItem implements Comparable<AppItem>{
-    public AppItem() { }
+public class AppItem implements Comparable<AppItem> {
+    public AppItem() {
+    }
 
     public AppItem(ResolveInfo ri, Context c) {
         this.drawable = ri.activityInfo.loadIcon(c.getPackageManager());
@@ -23,15 +24,22 @@ public class AppItem implements Comparable<AppItem>{
         this.pkg = pkg;
     }
 
-    /** Title of the app */
+    /**
+     * Title of the app
+     */
     public String title;
-    /** Icon of the app */
+    /**
+     * Icon of the app
+     */
     public Drawable drawable;
-    /** Package of the app */
+    /**
+     * Package of the app
+     */
     public String pkg;
 
     /**
      * Check if the two app items are the same by comparing the title
+     *
      * @param appItem app item to compare
      * @return the value <code>0</code> if the two titles are equal;
      * a value less than <code>0</code> if this title is lexicographically less than the title argument;

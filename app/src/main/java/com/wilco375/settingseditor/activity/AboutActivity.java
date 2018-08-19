@@ -39,38 +39,43 @@ public class AboutActivity extends AppCompatActivity {
 
     /**
      * Open url on Xposed button clicked
+     *
      * @param view clicked view
      */
-    public void onXposedClick(View view){
+    public void onXposedClick(View view) {
         openUrl("http://repo.xposed.info/module/com.wilco375.settingseditor");
     }
 
     /**
      * Open url on XDA button clicked
+     *
      * @param view clicked view
      */
-    public void onXdaClick(View view){
+    public void onXdaClick(View view) {
         openUrl("http://forum.xda-developers.com/xposed/modules/xposed-settings-editor-easily-add-edit-t3365756");
     }
 
     /**
      * Open url on Website button clicked
+     *
      * @param view clicked view
      */
-    public void onWebsiteClick(View view){
+    public void onWebsiteClick(View view) {
         openUrl("https://wilco375.com");
     }
 
     /**
      * Open url on bug form button clicked
+     *
      * @param view clicked view
      */
-    public void onBugClick(View view){
+    public void onBugClick(View view) {
         openUrl("https://wilco375.com/settingseditorsupport/");
     }
 
     /**
      * On option in ActionBar selected
+     *
      * @param item Item selected
      * @return success
      */
@@ -93,7 +98,7 @@ public class AboutActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.hold, R.anim.right_slide_out);
     }
 
-    private void openUrl(String url){
+    private void openUrl(String url) {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 }

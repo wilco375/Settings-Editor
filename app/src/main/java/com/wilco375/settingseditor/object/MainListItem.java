@@ -8,7 +8,7 @@ public class MainListItem {
     public String desc = "";
     public String id = "";
 
-    public MainListItem(String id, String title, String desc){
+    public MainListItem(String id, String title, String desc) {
         this.id = id;
         this.title = title;
         this.desc = desc;

@@ -8,9 +8,10 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 public class XposedChecker {
     /**
      * Checks if Xposed is active, is changed by {@link Xposed#handleLoadPackage(XC_LoadPackage.LoadPackageParam)} hook
+     *
      * @return true if active
      */
-    public static boolean active(){
+    public static boolean active() {
         return false;
     }
 }

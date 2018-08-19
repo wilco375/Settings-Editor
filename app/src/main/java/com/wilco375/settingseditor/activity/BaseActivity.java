@@ -2,7 +2,6 @@ package com.wilco375.settingseditor.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -40,7 +39,7 @@ public class BaseActivity extends AppCompatActivity {
      */
     public void getTiles() {
         categories = DashboardManager.getTiles();
-        if(categories == null || categories.size() == 0){
+        if (categories == null || categories.size() == 0) {
             categories = new ArrayList<>();
             showLaunchSettingsDialog();
         }
@@ -55,21 +54,22 @@ public class BaseActivity extends AppCompatActivity {
 
     /**
      * Check amount of modifications
+     *
      * @return true if too many modifications
      */
-    public boolean checkModifications(){
+    public boolean checkModifications() {
         int modifications = PreferencesManager.getInstance().getInteger(PreferenceConstants.KEY_MODIFICATIONS, 0);
 
         if (modifications >= 5 && !BuildConfig.PRO) {
             new AlertDialog.Builder(this)
-                .setTitle(R.string.trial_max_reached_title)
-                .setMessage(R.string.trial_max_reached_text)
-                .setNegativeButton(android.R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel())
-                .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Utils.PRO_URL)));
-                    dialogInterface.cancel();
-                })
-                .create().show();
+                    .setTitle(R.string.trial_max_reached_title)
+                    .setMessage(R.string.trial_max_reached_text)
+                    .setNegativeButton(android.R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel())
+                    .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Utils.PRO_URL)));
+                        dialogInterface.cancel();
+                    })
+                    .create().show();
 
             return true;
         }
@@ -88,7 +88,7 @@ public class BaseActivity extends AppCompatActivity {
             IOManager.writeObject(new Object(), IOManager.READ_SETTINGS_TILES);
             PackageManager pm = getPackageManager();
             Intent intent = pm.getLaunchIntentForPackage("com.android.settings");
-            if(intent != null){
+            if (intent != null) {
                 intent.addCategory(Intent.CATEGORY_LAUNCHER);
                 startActivity(intent);
                 System.exit(0);

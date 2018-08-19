@@ -5,7 +5,6 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.wilco375.settingseditor.R;
@@ -45,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
         supportActionBar.setDisplayHomeAsUpEnabled(true);
         supportActionBar.setTitle(R.string.settings);
 
-        if(Utils.aboveOreo()){
+        if (Utils.aboveOreo()) {
             findViewById(R.id.app_info).setVisibility(View.GONE);
         }
 
@@ -79,10 +77,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         assert modifyColumnsCheckBox != null;
         modifyColumnsCheckBox.setChecked(prefs.getBoolean(PreferenceConstants.KEY_BOOL_COLUMN_COUNT, false));
-        if(Utils.aboveNougat()) modifyColumnsCheckBox.setVisibility(View.GONE);
+        if (Utils.aboveNougat()) modifyColumnsCheckBox.setVisibility(View.GONE);
         assert modifyColumnsEditText != null;
         modifyColumnsEditText.setText(String.valueOf(prefs.getInteger(PreferenceConstants.KEY_INT_COLUMN_COUNT, 1)));
-        if(Utils.aboveNougat()) modifyColumnsEditText.setVisibility(View.GONE);
+        if (Utils.aboveNougat()) modifyColumnsEditText.setVisibility(View.GONE);
         assert iconsOnlyCheckBox != null;
         iconsOnlyCheckBox.setChecked(prefs.getBoolean(PreferenceConstants.KEY_BOOL_ICONS_ONLY, false));
         assert modifyIconSizeCheckBox != null;
@@ -113,7 +111,7 @@ public class SettingsActivity extends AppCompatActivity {
         hideStatusTextCheckBox.setChecked(prefs.getBoolean(PreferenceConstants.KEY_BOOL_HIDE_STATUS, false));
         assert hideSuggestions != null;
         hideSuggestions.setChecked(prefs.getBoolean(PreferenceConstants.KEY_BOOL_HIDE_SUGGESTIONS, false));
-        if(Utils.belowNougat()){
+        if (Utils.belowNougat()) {
             hideSuggestions.setVisibility(View.GONE);
         }
         assert debugCheckBox != null;
@@ -202,11 +200,11 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         hideIconCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(isChecked){
+            if (isChecked) {
                 PackageManager p = getPackageManager();
                 ComponentName componentName = new ComponentName(SettingsActivity.this, "com.wilco375.settingseditor.MainActivityAlias");
-                p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-            }else{
+                p.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            } else {
                 PackageManager p = getPackageManager();
                 ComponentName componentName = new ComponentName(SettingsActivity.this, "com.wilco375.settingseditor.MainActivityAlias");
                 p.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
@@ -271,12 +269,13 @@ public class SettingsActivity extends AppCompatActivity {
 
             // Kill settings
             ActivityManager am = (ActivityManager) activity.getSystemService(ACTIVITY_SERVICE);
-            if(am != null) am.killBackgroundProcesses("com.android.settings");
+            if (am != null) am.killBackgroundProcesses("com.android.settings");
         });
     }
 
     /**
      * Options menu inflater
+     *
      * @param menu Menu to be inflated
      * @return success
      */
@@ -288,6 +287,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * On option in menu selected
+     *
      * @param item Item selected
      * @return success
      */
@@ -299,12 +299,12 @@ public class SettingsActivity extends AppCompatActivity {
             case (R.id.settings):
                 // Kill and restart settings
                 ActivityManager am = (ActivityManager) activity.getSystemService(ACTIVITY_SERVICE);
-                if(am != null)
+                if (am != null)
                     am.killBackgroundProcesses("com.android.settings");
 
                 PackageManager pm = activity.getPackageManager();
                 Intent i = pm.getLaunchIntentForPackage("com.android.settings");
-                if(i != null) {
+                if (i != null) {
                     i.addCategory(Intent.CATEGORY_LAUNCHER);
                     activity.startActivity(i);
                 }

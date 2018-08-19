@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 /**
  * RelativeLayout with a listener implementation for {@link #onInterceptTouchEvent(MotionEvent)}
  */
-public class MyRelativeLayout extends RelativeLayout{
+public class MyRelativeLayout extends RelativeLayout {
     public OnInterceptTouchListener onInterceptTouchListener;
 
     public MyRelativeLayout(Context context) {
@@ -33,7 +33,8 @@ public class MyRelativeLayout extends RelativeLayout{
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if(onInterceptTouchListener != null) this.onInterceptTouchListener.onInterceptTouch(this, ev);
+        if (onInterceptTouchListener != null)
+            this.onInterceptTouchListener.onInterceptTouch(this, ev);
 
         return super.onInterceptTouchEvent(ev);
     }

@@ -31,7 +31,7 @@ public class AppItemAdapter extends ArrayAdapter<AppItem> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listitem_resolve_info, parent, false);
         }
-        if(appItem == null) return convertView;
+        if (appItem == null) return convertView;
 
         ImageView icon = convertView.findViewById(R.id.adapterIcon);
         TextView title = convertView.findViewById(R.id.adapterTitle);

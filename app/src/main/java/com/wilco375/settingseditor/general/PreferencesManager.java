@@ -15,9 +15,13 @@ import java.io.IOException;
  */
 @SuppressWarnings("unchecked")
 public class PreferencesManager {
-    /** Hashmap that stores all the preferences */
+    /**
+     * Hashmap that stores all the preferences
+     */
     private static DefaultHashMap<Integer, Object> prefs;
-    /** Static {@link PreferencesManager} instance */
+    /**
+     * Static {@link PreferencesManager} instance
+     */
     private static PreferencesManager preferencesManager;
 
     /**
@@ -28,18 +32,19 @@ public class PreferencesManager {
         Logger.logDbg("PreferencesManager Constructor");
         prefs = getPreferences();
 
-        if(prefs == null){
+        if (prefs == null) {
             Logger.logDbg("Prefs is null");
             prefs = new DefaultHashMap<>();
-        }else Logger.logDbg("Prefs is not null");
+        } else Logger.logDbg("Prefs is not null");
     }
 
     /**
      * Returns an instance of {@link PreferencesManager}
+     *
      * @return the {@link PreferencesManager} instance
      */
-    public static PreferencesManager getInstance(){
-        if(preferencesManager == null)
+    public static PreferencesManager getInstance() {
+        if (preferencesManager == null)
             preferencesManager = new PreferencesManager();
 
         return preferencesManager;
@@ -47,20 +52,22 @@ public class PreferencesManager {
 
     /**
      * Get the preferences from the local storage
+     *
      * @return preferences hashmap
      */
     @Nullable
-    private DefaultHashMap<Integer, Object> getPreferences(){
+    private DefaultHashMap<Integer, Object> getPreferences() {
         Logger.logDbg("Getting preferences");
 
-        if (IOManager.fileExists(IOManager.JSON_PREFS)){
+        if (IOManager.fileExists(IOManager.JSON_PREFS)) {
             Logger.logDbg("Getting JSON Preferences");
             try {
                 return new ObjectMapper().readValue(
                         new File(IOManager.FILEPATH, IOManager.JSON_PREFS),
-                        new TypeReference<DefaultHashMap<Integer, Object>>(){}
+                        new TypeReference<DefaultHashMap<Integer, Object>>() {
+                        }
                 );
-            }catch (IOException e){
+            } catch (IOException e) {
                 Logger.logDbg("IOException");
                 e.printStackTrace();
                 return null;
@@ -73,7 +80,7 @@ public class PreferencesManager {
                 savePreferences(prefs);
                 IOManager.deleteFile(IOManager.PREFS);
                 return prefs;
-            }catch (ClassCastException e){
+            } catch (ClassCastException e) {
                 Logger.logDbg("ClassCastException");
                 e.printStackTrace();
                 return null;
@@ -84,11 +91,12 @@ public class PreferencesManager {
 
     /**
      * Save the edited preferences
+     *
      * @param prefs hashmap to save
      */
-    private void savePreferences(DefaultHashMap<Integer, Object> prefs){
+    private void savePreferences(DefaultHashMap<Integer, Object> prefs) {
         Logger.logDbg("Saving preferences");
-        if(prefs == null){
+        if (prefs == null) {
             Logger.logDbg("Preferences is null");
             return;
         }
@@ -97,7 +105,7 @@ public class PreferencesManager {
             file.getParentFile().mkdirs();
             new ObjectMapper().writeValue(file, prefs);
             Logger.logDbg("Saved");
-        }catch (IOException e){
+        } catch (IOException e) {
             Logger.logDbg("IOException");
             e.printStackTrace();
         }
@@ -106,11 +114,12 @@ public class PreferencesManager {
 
     /**
      * Update the preferences
+     *
      * @return this
      */
     public PreferencesManager refresh() {
         prefs = getPreferences();
-        if(prefs == null)
+        if (prefs == null)
             prefs = new DefaultHashMap<>();
 
         return this;
@@ -118,7 +127,8 @@ public class PreferencesManager {
 
     /**
      * Get a string field value
-     * @param key key of the field
+     *
+     * @param key        key of the field
      * @param defaultVal value to return if the key doesn't exist
      * @return string value
      */
@@ -128,7 +138,8 @@ public class PreferencesManager {
 
     /**
      * Get a boolean field value
-     * @param key key of the field
+     *
+     * @param key        key of the field
      * @param defaultVal value to return if the key doesn't exist
      * @return boolean value
      */
@@ -138,7 +149,8 @@ public class PreferencesManager {
 
     /**
      * Get an integer field value
-     * @param key key of the field
+     *
+     * @param key        key of the field
      * @param defaultVal value to return if the key doesn't exist
      * @return integer value
      */
@@ -148,7 +160,8 @@ public class PreferencesManager {
 
     /**
      * Get an object field value
-     * @param key key of the field
+     *
+     * @param key        key of the field
      * @param defaultVal value to return if the key doesn't exist
      * @return object
      */
@@ -158,7 +171,8 @@ public class PreferencesManager {
 
     /**
      * Add a field to the preferences or edit it, and immediately save the changes to local storage
-     * @param key key to add/edit
+     *
+     * @param key   key to add/edit
      * @param value value to assign to the key
      */
     public void putAndApply(int key, Object value) {
@@ -168,7 +182,8 @@ public class PreferencesManager {
 
     /**
      * Add a field to the preferences or edit it
-     * @param key key to add/edit
+     *
+     * @param key   key to add/edit
      * @param value value to assign to the key
      * @return this
      */

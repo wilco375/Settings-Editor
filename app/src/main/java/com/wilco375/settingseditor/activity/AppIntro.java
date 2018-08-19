@@ -1,13 +1,11 @@
 package com.wilco375.settingseditor.activity;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,7 +19,7 @@ import com.wilco375.settingseditor.general.Utils;
 
 /**
  * Added by _cab13_
- *
+ * <p>
  * Intro for asking permissions, and introducing the app
  */
 public class AppIntro extends com.github.paolorotolo.appintro.AppIntro {
@@ -113,7 +111,7 @@ public class AppIntro extends com.github.paolorotolo.appintro.AppIntro {
     @Override
     public void onSlideChanged(@Nullable Fragment oldFragment, @Nullable Fragment newFragment) {
         super.onSlideChanged(oldFragment, newFragment);
-        if(oldFragment != null && oldFragment.getArguments() != null) {
+        if (oldFragment != null && oldFragment.getArguments() != null) {
             String title = oldFragment.getArguments().getString("title");
             if (title != null && title.equals(getString(R.string.remove_free))) {
                 // Remove Settings Editor
@@ -140,7 +138,7 @@ public class AppIntro extends com.github.paolorotolo.appintro.AppIntro {
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
 
-        getSharedPreferences("sp", MODE_PRIVATE).edit().putBoolean("firstAppLaunch",false).apply();
+        getSharedPreferences("sp", MODE_PRIVATE).edit().putBoolean("firstAppLaunch", false).apply();
         finish();
     }
 
@@ -148,7 +146,7 @@ public class AppIntro extends com.github.paolorotolo.appintro.AppIntro {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if(grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED){
+        if (grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
             AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
             alertBuilder
                     .setTitle(R.string.permissions_needed)

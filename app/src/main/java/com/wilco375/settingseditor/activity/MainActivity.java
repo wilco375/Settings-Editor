@@ -3,11 +3,9 @@ package com.wilco375.settingseditor.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
@@ -16,7 +14,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.wilco375.settingseditor.R;
@@ -64,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 getResources().getString(R.string.settings),
                 getResources().getString(R.string.settings_desc)));
 
-        if(Utils.belowOreo()) {
+        if (Utils.belowOreo()) {
             // Android Oreo doesn't have categories
             mainListViewItems.add(new MainListItem(
                     "categories",
@@ -92,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         TitleDescAdapter mainListAdapter = new TitleDescAdapter(this, mainListViewItems);
         mainListView.setAdapter(mainListAdapter);
         mainListView.setOnItemClickListener((parent, view, position, id) -> {
-            switch(mainListAdapter.getItem(position).id){
+            switch (mainListAdapter.getItem(position).id) {
                 case "settings":
                     startActivity(new Intent(activity, SettingsActivity.class));
                     break;
@@ -114,14 +111,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the FAB, and disable it if PRO
         FloatingActionButton proFab = findViewById(R.id.profab);
-        if (PRO){
+        if (PRO) {
             proFab.setVisibility(View.GONE);
-        }else{
+        } else {
             proFab.setOnClickListener(view -> startActivity(new Intent(ACTION_VIEW, Uri.parse(Utils.PRO_URL))));
         }
 
         // Show popup if module not activated
-        if(!XposedChecker.active()) {
+        if (!XposedChecker.active()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.xposed_not_active);
             builder.setMessage(R.string.xposed_not_active_desc);
@@ -132,12 +129,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static void checkIntro(Context context){
+    public static void checkIntro(Context context) {
         // On first boot, launch App Intro
-        if (context.getSharedPreferences("sp", MODE_PRIVATE).getBoolean("firstAppLaunch",true) || (
+        if (context.getSharedPreferences("sp", MODE_PRIVATE).getBoolean("firstAppLaunch", true) || (
                 Utils.aboveMarshmallow() &&
                         ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
-        )){
+        )) {
             Intent appIntro = new Intent(context, AppIntro.class);
             context.startActivity(appIntro);
         }
