@@ -9,11 +9,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
+
+import androidx.annotation.Nullable;
 
 import static de.robv.android.xposed.XposedHelpers.getObjectField;
 

@@ -6,9 +6,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -21,6 +18,10 @@ import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.general.PreferenceConstants;
 import com.wilco375.settingseditor.general.PreferencesManager;
 import com.wilco375.settingseditor.general.Utils;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class SettingsActivity extends AppCompatActivity {
 

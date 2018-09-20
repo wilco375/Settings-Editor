@@ -21,9 +21,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 import android.util.AndroidException;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -47,6 +44,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mobeta.android.dslv.DragSortListView;
 import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.adapter.AppItemAdapter;
@@ -73,6 +71,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 public class TilesActivity extends BaseActivity {
 

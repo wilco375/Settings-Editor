@@ -1,7 +1,6 @@
 package com.wilco375.settingseditor.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,8 @@ import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.object.AppItem;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 /**
  * Adapter for AppItem to show a list of apps

@@ -3,7 +3,8 @@ package com.wilco375.settingseditor.object;
 import android.content.Context;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * Object that stores the title, package and icon of an app

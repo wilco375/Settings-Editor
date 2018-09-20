@@ -3,10 +3,7 @@ package com.wilco375.settingseditor.licensing;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
 import com.google.android.vending.licensing.AESObfuscator;
@@ -15,6 +12,9 @@ import com.google.android.vending.licensing.LicenseCheckerCallback;
 import com.google.android.vending.licensing.ServerManagedPolicy;
 import com.wilco375.settingseditor.BuildConfig;
 import com.wilco375.settingseditor.R;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 public class License {
     private static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAif/UDfThq2J9SAX01LYsEkZ3H9FHndyzaQRdVQy0CwBJvJ4ugnWMOgdx/fPZ8rgLS8001DQ98o2ZZ9M5Qf+SrtbIgp63gpVLkxif3dhYMN428R2MKxeGd/NCd5LDvWbtbItJO6VWnVGNmLvDZb7ftBRF6cICYRtGfH/fDQkxkKJgr7hVwPHAFGkPjrpC7qXezVvb1QV7BPysCSeUyB5wWaI+0F2O72ozayHKM1lWJoq2ZCJl1oYsncLjLScaywMIEwChWnl2oy44ywDWzl9U/r/NmHImcbtAkhHwdFHO9jLiyTKRZZVaIWgjWjrZEcXApDlOSZ5rkKBrOnqQ2/X0yQIDAQAB";

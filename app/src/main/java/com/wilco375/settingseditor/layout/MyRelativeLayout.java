@@ -2,11 +2,12 @@ package com.wilco375.settingseditor.layout;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.Nullable;
 
 /**
  * RelativeLayout with a listener implementation for {@link #onInterceptTouchEvent(MotionEvent)}

@@ -3,7 +3,6 @@ package com.wilco375.settingseditor.layout;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -14,6 +13,8 @@ import android.widget.ImageView;
 
 import java.io.IOException;
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 /**
  * View that displays images from assets in a gallery grid

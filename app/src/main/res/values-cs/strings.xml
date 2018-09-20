@@ -86,6 +86,6 @@ Prosím kupte si tuto aplikaci v obchodě Google Play. Pokud věříte že toto 
 <string name="checking_license">"Kontroluji licenci, prosím počkejte..."</string>
 <string name="remove_free">"Odinstalovat Settings Editor"</string>
 <string name="remove_free_desc">"Settings Editor PRO detekoval že Settings Editor je stále ještě nainstalován. Prosím odinstalujte jej tapnutím na tento text."</string>
-<string name="hide_suggestions"></string>
-<string name="discard"></string>
+<string name="hide_suggestions">"Skrýt návrhy"</string>
+<string name="discard">"Chcete zrušit všechny změny?"</string>
 </resources>

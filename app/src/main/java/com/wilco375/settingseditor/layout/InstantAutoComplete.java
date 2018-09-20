@@ -2,8 +2,9 @@ package com.wilco375.settingseditor.layout;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 
 /**
  * Custom View extending the AutoCompleteTextView that instantly shows the autocomplete items

@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,8 @@ import com.wilco375.settingseditor.general.Utils;
 import com.wilco375.settingseditor.object.serializable.SerializableDashboardTile;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 /**
  * Adapter for SerializableDashboardTile to show a list of tiles

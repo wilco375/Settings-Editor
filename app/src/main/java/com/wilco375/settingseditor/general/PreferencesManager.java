@@ -1,7 +1,5 @@
 package com.wilco375.settingseditor.general;
 
-import android.support.annotation.Nullable;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wilco375.settingseditor.object.serializable.DefaultHashMap;
@@ -9,6 +7,8 @@ import com.wilco375.settingseditor.xposed.Logger;
 
 import java.io.File;
 import java.io.IOException;
+
+import androidx.annotation.Nullable;
 
 /**
  * Alternative to SharedPreferences that does not seem to be working correctly in Android 6.0 with Xposed

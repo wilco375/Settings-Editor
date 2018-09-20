@@ -1,7 +1,6 @@
 package com.wilco375.settingseditor.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,8 @@ import android.widget.TextView;
 import com.wilco375.settingseditor.R;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 /**
  * Adapter for sortable String array, used in CategoriesActivity

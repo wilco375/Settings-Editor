@@ -1,7 +1,5 @@
 package com.wilco375.settingseditor.general;
 
-import android.support.annotation.Nullable;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wilco375.settingseditor.object.serializable.SerializableDashboardCategory;
@@ -11,6 +9,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 @SuppressWarnings("unchecked")
 /**
