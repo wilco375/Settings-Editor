@@ -7,12 +7,13 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
-import com.github.paolorotolo.appintro.AppIntroFragment;
+import com.github.appintro.AppIntroFragment;
 import com.wilco375.settingseditor.BuildConfig;
 import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.general.Utils;
@@ -22,16 +23,15 @@ import com.wilco375.settingseditor.general.Utils;
  * <p>
  * Intro for asking permissions, and introducing the app
  */
-public class AppIntro extends com.github.paolorotolo.appintro.AppIntro {
+public class AppIntro extends com.github.appintro.AppIntro {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setProgressButtonEnabled(false);
-        setGoBackLock(true);
+        setSystemBackButtonLocked(true);
         setSwipeLock(false);
-        showSkipButton(false);
+        setSkipButtonEnabled(false);
 
         //noinspection ConstantConditions
         addSlide(
