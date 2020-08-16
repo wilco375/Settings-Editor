@@ -31,8 +31,8 @@ android {
         applicationId "com.wilco375.settingseditor"
         minSdkVersion 14
         targetSdkVersion 29
-        versionCode 48
-        versionName "2.13.3"
+        versionCode 49
+        versionName "2.14.0"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
     }
