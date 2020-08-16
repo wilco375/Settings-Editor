@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,14 +15,17 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.general.PreferenceConstants;
 import com.wilco375.settingseditor.general.PreferencesManager;
 import com.wilco375.settingseditor.general.Utils;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -44,7 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
         supportActionBar.setDisplayHomeAsUpEnabled(true);
         supportActionBar.setTitle(R.string.settings);
 
-        if (Utils.aboveOreo()) {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.O) {
             findViewById(R.id.app_info).setVisibility(View.GONE);
         }
 
@@ -300,8 +304,24 @@ public class SettingsActivity extends AppCompatActivity {
             case (R.id.settings):
                 // Kill and restart settings
                 ActivityManager am = (ActivityManager) activity.getSystemService(ACTIVITY_SERVICE);
-                if (am != null)
-                    am.killBackgroundProcesses("com.android.settings");
+                if (am != null) {
+                    if (Utils.abovePie()) {
+                        // We need root to kill
+                        try {
+                            Process p = Runtime.getRuntime().exec("su");
+                            DataOutputStream os = new DataOutputStream(p.getOutputStream());
+                            os.writeBytes("am force-stop com.android.settings\n");
+                            os.flush();
+                            os.writeBytes("exit\n");
+                            os.flush();
+                            p.waitFor();
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        am.killBackgroundProcesses("com.android.settings");
+                    }
+                }
 
                 PackageManager pm = activity.getPackageManager();
                 Intent i = pm.getLaunchIntentForPackage("com.android.settings");

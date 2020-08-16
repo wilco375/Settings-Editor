@@ -44,6 +44,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mobeta.android.dslv.DragSortListView;
 import com.wilco375.settingseditor.R;
@@ -71,9 +74,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 
 public class TilesActivity extends BaseActivity {
 

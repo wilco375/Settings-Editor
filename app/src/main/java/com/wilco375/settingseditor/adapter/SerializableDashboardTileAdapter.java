@@ -12,13 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.general.Utils;
 import com.wilco375.settingseditor.object.serializable.SerializableDashboardTile;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 /**
  * Adapter for SerializableDashboardTile to show a list of tiles
@@ -57,8 +57,8 @@ public class SerializableDashboardTileAdapter extends ArrayAdapter<SerializableD
                 else icon.setImageDrawable(settingsRes.getDrawable(dashboardTile.iconRes));
             } catch (Resources.NotFoundException e) {
             }
-        } else if (dashboardTile.icon != null) {
-            icon.setImageBitmap(dashboardTile.icon.toBitmap(getContext()));
+        } else if (dashboardTile.icon != null && Utils.aboveNougat()) {
+            icon.setImageIcon(dashboardTile.icon.toIcon());
         }
         title.setText(dashboardTile.title);
 

@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.object.MainListItem;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 /**
  * Adapter for items to show a list of activities to launch

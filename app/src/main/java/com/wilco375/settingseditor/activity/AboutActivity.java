@@ -7,10 +7,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.wilco375.settingseditor.R;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.wilco375.settingseditor.R;
 
 public class AboutActivity extends AppCompatActivity {
 

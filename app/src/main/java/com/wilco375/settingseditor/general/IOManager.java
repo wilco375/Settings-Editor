@@ -1,7 +1,7 @@
 package com.wilco375.settingseditor.general;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
 
@@ -102,7 +102,12 @@ public class IOManager {
      */
     public static String writeDrawable(Drawable drawable, String filePath, String name) {
         try {
-            Bitmap image = Bitmap.createScaledBitmap(((BitmapDrawable) drawable).getBitmap(), 192, 192, false);
+            Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+
+            Bitmap image = Bitmap.createScaledBitmap(bitmap, 192, 192, false);
             File destination = new File(filePath, name);
             if (destination.createNewFile()) {
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();

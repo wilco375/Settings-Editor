@@ -122,6 +122,13 @@ public class Utils {
     /**
      * @return true if SDK version is at least Oreo (SDK >= 26)
      */
+    public static boolean abovePie() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.P;
+    }
+
+    /**
+     * @return true if SDK version is at least Oreo (SDK >= 26)
+     */
     public static boolean aboveOreo() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
     }

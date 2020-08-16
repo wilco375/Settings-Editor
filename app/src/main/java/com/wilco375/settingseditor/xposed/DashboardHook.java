@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.wilco375.settingseditor.BuildConfig;
 import com.wilco375.settingseditor.general.DashboardManager;
 import com.wilco375.settingseditor.general.IOManager;
@@ -26,7 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import androidx.annotation.NonNull;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
@@ -266,7 +267,7 @@ public class DashboardHook {
         Logger.logDbg("########## Categories Dump ##########");
         List<Object> categories = (List<Object>) categoriesObj;
         for (Object category : categories) {
-            List<Object> tiles = (List<Object>) getObjectField(category, "tiles");
+            List<Object> tiles = getTiles(category);
             for (Object tile : tiles) {
                 Logger.logDbg(getObjectField(tile, "title") + " - " + getObjectField(tile, "summary"));
             }
@@ -365,7 +366,7 @@ public class DashboardHook {
 
         // Log summaries
         for (Object category : categories) {
-            List<Object> tiles = (List<Object>) getObjectField(category, "tiles");
+            List<Object> tiles = getTiles(category);
             for (Object tile : tiles) {
                 Logger.logDbg("Summary of " + getObjectField(tile, "title") + " is " + getObjectField(tile, "summary"));
             }
@@ -486,5 +487,13 @@ public class DashboardHook {
         }
 
         return "";
+    }
+
+    public List<Object> getTiles(Object category) {
+        try {
+            return (List<Object>) getObjectField(category, "tiles");
+        } catch (NoSuchFieldError e) {
+            return (List<Object>) getObjectField(category, "mTiles");
+        }
     }
 }

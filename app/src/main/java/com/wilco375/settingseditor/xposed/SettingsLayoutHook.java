@@ -51,19 +51,16 @@ public class SettingsLayoutHook {
 
         final PreferencesManager prefs = PreferencesManager.getInstance();
 
-        // InstalledAppDetails setAppLabelAndIcon Hook
-        findAndHookMethod(findClass("com.android.settings.applications.InstalledAppDetails", lpparam.classLoader), "setAppLabelAndIcon", PackageInfo.class, new XC_MethodHook() {
-            @Override
-            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                Logger.logDbg("InstalledAppDetails setAppLabelAndIcon");
-
-                // Set installed app icon onClickListener
-                setInstalledAppIconListener(prefs, param);
-
-                // Show package name
-                showPackageName(prefs, param);
+        try {
+            findAndHookMethod(findClass("com.android.settings.applications.InstalledAppDetails", lpparam.classLoader), "setAppLabelAndIcon", PackageInfo.class, setAppLabelAndIcon);
+        } catch (Throwable t) {
+            try {
+                Class<?> AppEntry = findClass("com.android.settingslib.applications.ApplicationsState.AppEntry", lpparam.classLoader);
+                findAndHookMethod(findClass("com.android.settings.applications.appinfo.AppHeaderViewPreferenceController", lpparam.classLoader), "setAppLabelAndIcon", PackageInfo.class, AppEntry, setAppLabelAndIcon);
+            } catch (Throwable t1) {
+                Logger.logDbg("setAppLabelAndIcon not found");
             }
-        });
+        }
 
         if (Utils.belowNougat()) {
             // Marshmallow and below
@@ -220,6 +217,21 @@ public class SettingsLayoutHook {
             }
         }
     }
+
+    private static final XC_MethodHook setAppLabelAndIcon = new XC_MethodHook() {
+        @Override
+        protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+            Logger.logDbg("setAppLabelAndIcon");
+
+            PreferencesManager prefs = PreferencesManager.getInstance();
+
+            // Set installed app icon onClickListener
+            setInstalledAppIconListener(prefs, param);
+
+            // Show package name
+            showPackageName(prefs, param);
+        }
+    };
 
     /**
      * Remove suggestions
@@ -608,29 +620,38 @@ public class SettingsLayoutHook {
         if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_INSTALLED_APP_ICON, false)) {
             Logger.logDbg("Setting installed apps icon onClickListener");
 
-            View appSnippet;
+            View appSnippet = null;
             try {
                 final Context context = (Context) callMethod(param.thisObject, "getContext");
                 appSnippet = (View) callMethod(getObjectField(param.thisObject, "mHeader"), "findViewById", context.getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
             } catch (Throwable t) {
-                View rootView = (View) getObjectField(param.thisObject, "mRootView");
-                appSnippet = rootView.findViewById(rootView.getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
+                try {
+                    View rootView = (View) getObjectField(param.thisObject, "mRootView");
+                    appSnippet = rootView.findViewById(rootView.getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
+                } catch (Throwable t1) {
+                    Logger.logDbg("appSnippet not found");
+                }
             }
-            final View finalAppSnippet = appSnippet;
-            ImageView icon = appSnippet.findViewById(android.R.id.icon);
+            ImageView icon = appSnippet == null ? null : appSnippet.findViewById(android.R.id.icon);
             if (icon == null) {
-                // Oreo
+                Logger.logDbg("Finding icon in mRootView");
                 View rootView = (View) getObjectField(getObjectField(param.thisObject, "mHeader"), "mRootView");
                 icon = rootView.findViewById(rootView.getResources().getIdentifier("entity_header_icon", "id", "com.android.settings"));
             }
-            icon.setOnClickListener(v -> {
-                PackageManager pm = finalAppSnippet.getContext().getPackageManager();
-                Intent i = pm.getLaunchIntentForPackage(((PackageInfo) param.args[0]).packageName);
-                if (i != null) {
-                    i.addCategory(Intent.CATEGORY_LAUNCHER);
-                    finalAppSnippet.getContext().startActivity(i);
-                }
-            });
+
+            if (icon != null) {
+                final Context finalContext =  icon.getContext();
+                icon.setOnClickListener(v -> {
+                    PackageManager pm = finalContext.getPackageManager();
+                    Intent i = pm.getLaunchIntentForPackage(((PackageInfo) param.args[0]).packageName);
+                    if (i != null) {
+                        i.addCategory(Intent.CATEGORY_LAUNCHER);
+                        finalContext.startActivity(i);
+                    }
+                });
+            } else {
+                Logger.logDbg("Icon not found");
+            }
         }
     }
 
@@ -644,16 +665,45 @@ public class SettingsLayoutHook {
         if (prefs.getBoolean(PreferenceConstants.KEY_BOOL_SHOW_PACKAGE, false)) {
             Logger.logDbg("Showing package name");
 
-            View appSnippet;
-            try {
-                final Context context = (Context) callMethod(param.thisObject, "getContext");
-                appSnippet = (View) callMethod(getObjectField(param.thisObject, "mHeader"), "findViewById", context.getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
-            } catch (Throwable t) {
-                appSnippet = ((View) getObjectField(param.thisObject, "mRootView")).findViewById(((View) getObjectField(param.thisObject, "mRootView")).getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
+            TextView text = null;
+            String packageName = null;
+            if (Utils.belowOreo()) {
+                View appSnippet;
+                try {
+                    final Context context = (Context) callMethod(param.thisObject, "getContext");
+                    appSnippet = (View) callMethod(getObjectField(param.thisObject, "mHeader"), "findViewById", context.getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
+                } catch (Throwable t) {
+                    appSnippet = ((View) getObjectField(param.thisObject, "mRootView")).findViewById(((View) getObjectField(param.thisObject, "mRootView")).getResources().getIdentifier("app_snippet", "id", "com.android.settings"));
+                }
+                text = appSnippet.findViewById(appSnippet.getResources().getIdentifier("widget_text1", "id", "com.android.settings"));
+                packageName = ((PackageInfo) param.args[0]).packageName;
+            } else {
+                // Oreo
+                try {
+                    View rootView = (View) getObjectField(getObjectField(param.thisObject, "mHeader"), "mRootView");
+                    text = rootView.findViewById(rootView.getResources().getIdentifier("entity_header_summary", "id", "com.android.settings"));
+                    packageName = (String) getObjectField(param.thisObject, "mPackageName");
+                } catch (Throwable t) {
+                    t.printStackTrace();
+                    Logger.logDbg("Could not find root view");
+                }
             }
-            TextView widgetText1 = appSnippet.findViewById(appSnippet.getResources().getIdentifier("widget_text1", "id", "com.android.settings"));
-            if (widgetText1 != null)
-                widgetText1.setText(widgetText1.getText().toString() + " - " + ((PackageInfo) param.args[0]).packageName);
+
+            if (text != null) {
+                Logger.logDbg("Adding package name "+packageName+" to text");
+
+                String currentText = text.getText().toString();
+                if (!currentText.isEmpty()) {
+                    text.setSingleLine(false);
+                    text.setLines(2);
+                    text.setMaxLines(2);
+                    text.setText(packageName + System.getProperty("line.separator") + currentText);
+                } else {
+                    text.setText(packageName);
+                }
+            } else {
+                Logger.logDbg("Could not find text");
+            }
         }
     }
 

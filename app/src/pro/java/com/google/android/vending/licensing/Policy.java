@@ -46,7 +46,7 @@ public interface Policy {
      * Provide results from contact with the license server. Retry counts are
      * incremented if the current value of response is RETRY. Results will be
      * used for any future policy decisions.
-     * 
+     *
      * @param response the result from validating the server response
      * @param rawData the raw server response data, can be null for RETRY
      */
@@ -56,4 +56,10 @@ public interface Policy {
      * Check if the user should be allowed access to the application.
      */
     boolean allowAccess();
+
+    /**
+     * Gets the licensing URL returned by the server that can enable access for unlicensed apps (e.g.
+     * buy app on the Play Store).
+     */
+    String getLicensingUrl();
 }
