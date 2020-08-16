@@ -8,11 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.wilco375.settingseditor.R;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 /**
  * Adapter for sortable String array, used in CategoriesActivity

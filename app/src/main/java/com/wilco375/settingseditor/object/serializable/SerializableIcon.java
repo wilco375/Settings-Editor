@@ -11,10 +11,10 @@ import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.util.Base64;
 
+import androidx.annotation.Nullable;
+
 import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
-
-import androidx.annotation.Nullable;
 
 import static de.robv.android.xposed.XposedHelpers.getObjectField;
 

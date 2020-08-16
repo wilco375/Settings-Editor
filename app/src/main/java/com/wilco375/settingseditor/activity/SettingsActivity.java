@@ -14,20 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.general.PreferenceConstants;
 import com.wilco375.settingseditor.general.PreferencesManager;
 import com.wilco375.settingseditor.general.Utils;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.List;
 
 public class SettingsActivity extends AppCompatActivity {
 

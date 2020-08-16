@@ -2,7 +2,6 @@ package com.wilco375.settingseditor.general;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
 

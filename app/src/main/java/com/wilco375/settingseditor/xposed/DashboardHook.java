@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.wilco375.settingseditor.BuildConfig;
 import com.wilco375.settingseditor.general.DashboardManager;
 import com.wilco375.settingseditor.general.IOManager;
@@ -26,7 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import androidx.annotation.NonNull;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;

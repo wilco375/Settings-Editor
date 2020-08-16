@@ -11,10 +11,10 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
+
 import java.io.IOException;
 import java.util.List;
-
-import androidx.annotation.Nullable;
 
 /**
  * View that displays images from assets in a gallery grid

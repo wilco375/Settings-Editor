@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.mobeta.android.dslv.DragSortListView;
 import com.wilco375.settingseditor.R;
 import com.wilco375.settingseditor.adapter.SortableStringAdapter;
@@ -20,8 +22,6 @@ import com.wilco375.settingseditor.object.serializable.SerializableDashboardCate
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.appcompat.widget.Toolbar;
 
 public class CategoriesActivity extends BaseActivity {
 

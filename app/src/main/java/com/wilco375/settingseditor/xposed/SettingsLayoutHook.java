@@ -1,6 +1,5 @@
 package com.wilco375.settingseditor.xposed;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -8,8 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.os.Bundle;
-import android.text.Html;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +32,6 @@ import static de.robv.android.xposed.XposedHelpers.callMethod;
 import static de.robv.android.xposed.XposedHelpers.findAndHookConstructor;
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
 import static de.robv.android.xposed.XposedHelpers.findClass;
-import static de.robv.android.xposed.XposedHelpers.findFirstFieldByExactType;
 import static de.robv.android.xposed.XposedHelpers.findMethodsByExactParameters;
 import static de.robv.android.xposed.XposedHelpers.getObjectField;
 import static de.robv.android.xposed.XposedHelpers.setObjectField;
