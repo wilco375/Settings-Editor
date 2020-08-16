@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -684,7 +685,7 @@ public class SettingsLayoutHook {
                 // Oreo
                 try {
                     View rootView = (View) getObjectField(getObjectField(param.thisObject, "mHeader"), "mRootView");
-                    text = rootView.findViewById(rootView.getResources().getIdentifier("entity_header_second_summary", "id", "com.android.settings"));
+                    text = rootView.findViewById(rootView.getResources().getIdentifier("entity_header_summary", "id", "com.android.settings"));
                     packageName = (String) getObjectField(param.thisObject, "mPackageName");
                 } catch (Throwable t) {
                     t.printStackTrace();
@@ -697,7 +698,10 @@ public class SettingsLayoutHook {
 
                 String currentText = text.getText().toString();
                 if (!currentText.isEmpty()) {
-                    text.setText(currentText + " - " + packageName);
+                    text.setSingleLine(false);
+                    text.setLines(2);
+                    text.setMaxLines(2);
+                    text.setText(packageName + System.getProperty("line.separator") + currentText);
                 } else {
                     text.setText(packageName);
                 }
