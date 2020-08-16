@@ -266,7 +266,7 @@ public class DashboardHook {
         Logger.logDbg("########## Categories Dump ##########");
         List<Object> categories = (List<Object>) categoriesObj;
         for (Object category : categories) {
-            List<Object> tiles = (List<Object>) getObjectField(category, "tiles");
+            List<Object> tiles = getTiles(category);
             for (Object tile : tiles) {
                 Logger.logDbg(getObjectField(tile, "title") + " - " + getObjectField(tile, "summary"));
             }
@@ -365,7 +365,7 @@ public class DashboardHook {
 
         // Log summaries
         for (Object category : categories) {
-            List<Object> tiles = (List<Object>) getObjectField(category, "tiles");
+            List<Object> tiles = getTiles(category);
             for (Object tile : tiles) {
                 Logger.logDbg("Summary of " + getObjectField(tile, "title") + " is " + getObjectField(tile, "summary"));
             }
@@ -486,5 +486,13 @@ public class DashboardHook {
         }
 
         return "";
+    }
+
+    public List<Object> getTiles(Object category) {
+        try {
+            return (List<Object>) getObjectField(category, "tiles");
+        } catch (NoSuchFieldError e) {
+            return (List<Object>) getObjectField(category, "mTiles");
+        }
     }
 }

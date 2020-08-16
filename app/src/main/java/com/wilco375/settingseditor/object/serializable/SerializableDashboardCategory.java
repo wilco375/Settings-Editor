@@ -57,7 +57,8 @@ public class SerializableDashboardCategory implements Serializable {
             priority = (int) getObjectField(dashboardCategory, "priority");
         } catch (NoSuchFieldError e) {
         }
-        for (Object dashboardTile : (List<Object>) getObjectField(dashboardCategory, "tiles")) {
+
+        for (Object dashboardTile : dashboardHook.getTiles(dashboardCategory)) {
             try {
                 tiles.add(new SerializableDashboardTile(dashboardTile, context, dashboardHook));
             } catch (NullPointerException e) {

@@ -57,8 +57,8 @@ public class SerializableDashboardTileAdapter extends ArrayAdapter<SerializableD
                 else icon.setImageDrawable(settingsRes.getDrawable(dashboardTile.iconRes));
             } catch (Resources.NotFoundException e) {
             }
-        } else if (dashboardTile.icon != null) {
-            icon.setImageBitmap(dashboardTile.icon.toBitmap(getContext()));
+        } else if (dashboardTile.icon != null && Utils.aboveNougat()) {
+            icon.setImageIcon(dashboardTile.icon.toIcon());
         }
         title.setText(dashboardTile.title);
 
