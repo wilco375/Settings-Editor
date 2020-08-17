@@ -35,7 +35,7 @@
                 <ImageView
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/icon"/>
+                    android:src="@mipmap/ic_launcher_round"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

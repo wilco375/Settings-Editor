@@ -31,7 +31,8 @@
 
         <activity
             android:name=".activity.AppIntro"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"

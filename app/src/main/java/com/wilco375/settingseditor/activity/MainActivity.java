@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         // Set toolbar and add icon
         Toolbar toolbar = findViewById(R.id.toolbar);
         assert toolbar != null;
-        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+        toolbar.setNavigationIcon(R.drawable.toolbar_icon);
         setSupportActionBar(toolbar);
 
         // Set title of toolbar and add back button

@@ -38,7 +38,7 @@ public class AppIntro extends com.github.appintro.AppIntro {
                 AppIntroFragment.newInstance(
                         getString(R.string.app_name),
                         getString(R.string.xposed_desc),
-                        BuildConfig.PRO ? R.drawable.icon_pro : R.drawable.icon,
+                        R.drawable.intro_icon,
                         Color.parseColor("#F44336")
                 )
         );
@@ -146,7 +146,7 @@ public class AppIntro extends com.github.appintro.AppIntro {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
+        if ((grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) || (grantResults.length > 1 && grantResults[1] != PackageManager.PERMISSION_GRANTED)) {
             AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
             alertBuilder
                     .setTitle(R.string.permissions_needed)
